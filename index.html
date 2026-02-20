@@ -1960,6 +1960,23 @@ function buildPrepsQ(R){
   const choices = shuffle([correct, ...wrongs]);
   return {entry, prompt: entry.lemma, correct, choices, picked:null, timeLeft:R.seconds};
 }
+function normConj(c){
+  c = String(c ?? "").trim().toLowerCase();
+
+  // allow numeric or friendly labels
+  if(c==="1" || c==="1st" || c==="first") return "1";
+  if(c==="2" || c==="2nd" || c==="second") return "2";
+  if(c==="3" || c==="3rd" || c==="third") return "3";
+
+  // 3rd-io variations
+  if(c==="3io" || c==="3-io" || c==="3rd-io" || c==="3rdio") return "3io";
+
+  if(c==="4" || c==="4th" || c==="fourth") return "4";
+  if(c==="sum") return "sum";
+
+  return c; // fallback (e.g., "defective")
+}
+
 function conjLabel(c){
   if(c==="1") return "1st";
   if(c==="2") return "2nd";
@@ -2550,7 +2567,7 @@ function collectVerbCandidates(entries){
   const v = STATE.verbs;
   return entries.filter(e=>{
     if(e.pos!=="verb" || !e.verb) return false;
-    const c = e.verb.conj;
+    const c = normConj(e.verb.conj);
     if(c==="sum") return v.includeSum;
     if(c==="1") return v.conjs.c1;
     if(c==="2") return v.conjs.c2;
