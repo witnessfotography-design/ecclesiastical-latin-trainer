@@ -508,7 +508,7 @@ const SEED_ENTRIES = [
 {unit:1, lemma:"ad", pos:"prep", gloss:"to; toward; for (the purpose of); at"},
 {unit:11, lemma:"Adam", pos:"noun", gloss:"Adam", noun:{decl:1, gender:"m", nom:"Adam", gen:"Adae"}},
 {unit:6, lemma:"adhuc", pos:"adv", gloss:"so far; till now; still"},
-{unit:27, lemma:"adjuvo", pos:"verb", gloss:"help", verb:{conj:1, pp:["adjuvo","adjuvare","adjuvi","adjutus"]}},
+{unit:7, lemma:"adjuvo", pos:"verb", gloss:"help", verb:{conj:1, pp:["adjuvo","adjuvare","adjuvi","adjutus"]}},
 {unit:17, lemma:"adventus", pos:"noun", gloss:"coming; advent", noun:{decl:4, gender:"m", nom:"adventus", gen:"adventus"}},
 {unit:32, lemma:"adversus", pos:"prep", gloss:"against"},
 {unit:4, lemma:"aeternus", pos:"adj", gloss:"eternal"},
@@ -766,7 +766,8 @@ const SEED_ENTRIES = [
 {unit:16, lemma:"frater", pos:"noun", gloss:"brother", noun:{decl:3, gender:"m", nom:"frater", gen:"fratris"}},
 {unit:24, lemma:"fructus", pos:"noun", gloss:"fruit; result", noun:{decl:4, gender:"m", nom:"fructus", gen:"fructus"}},
 {unit:30, lemma:"frumentum", pos:"noun", gloss:"grain; wheat", noun:{decl:2, gender:"n", nom:"frumentum", gen:"frumenti"}},
-{unit:6, lemma:"fugio", pos:"verb", gloss:"flee; escape", verb:{conj:"3io", pp:["fugio","fugere","fugi","fugitus"]}},
+{unit:25, lemma:"fugio", pos:"verb", gloss:"flee; escape", verb:{conj:"3io", pp:["fugio","fugere","fugi","fugitus"]}},
+{unit:6, lemma:"fugo", pos:"verb", gloss:"chase away; put to flight", verb:{conj:"1st", pp:["fugo","fugare","fugavi","fugatus"]}},
 {unit:3, lemma:"gaudium", pos:"noun", gloss:"joy", noun:{decl:2, gender:"n", nom:"gaudium", gen:"gaudii"}},
 {unit:24, lemma:"gemitus", pos:"noun", gloss:"groan; sigh", noun:{decl:4, gender:"m", nom:"gemitus", gen:"gemitus"}},
 {unit:1, lemma:"genus", pos:"noun", gloss:"race; kind; type", noun:{decl:3, gender:"n", nom:"genus", gen:"generis"}},
@@ -2587,6 +2588,36 @@ function pickRandomVerbSpecs(){
   const voice = voices[Math.floor(Math.random()*voices.length)];
   return {tense, voice};
 }
+function pickVerbByEnabledConj(pool){
+  const v = STATE.verbs;
+
+  // Which conjugations are enabled?
+  const enabled = [];
+  if(v.conjs.c1) enabled.push("1");
+  if(v.conjs.c2) enabled.push("2");
+  if(v.conjs.c3) enabled.push("3");
+  if(v.conjs.c3io) enabled.push("3io");
+  if(v.conjs.c4) enabled.push("4");
+  if(v.includeSum) enabled.push("sum");
+
+  // Bucket verbs by conjugation
+  const buckets = {};
+  for(const c of enabled) buckets[c] = [];
+  for(const e of pool){
+    const c = normConj(e.verb?.conj);
+    if(buckets[c]) buckets[c].push(e);
+  }
+
+  // Keep only conjugations that actually have verbs available
+  const nonEmpty = enabled.filter(c => buckets[c] && buckets[c].length);
+
+  if(!nonEmpty.length) return null;
+
+  // Pick a conjugation uniformly, then a verb from that bucket
+  const c = nonEmpty[Math.floor(Math.random() * nonEmpty.length)];
+  const list = buckets[c];
+  return list[Math.floor(Math.random() * list.length)];
+}
 
 function startVerbParadigm(){
   const units = getSelectedUnits();
@@ -2599,7 +2630,8 @@ function startVerbParadigm(){
 
   let chosen=null, built=null;
   for(let tries=0; tries<30; tries++){
-    const entry = pool[Math.floor(Math.random()*pool.length)];
+    const entry = pickVerbByEnabledConj(pool);
+    if(!entry) break;
     if(pick.tense==="infinitive"){
       const infs = buildVerbInfinitives(entry.verb);
       if(!infs) continue;
