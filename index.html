@@ -25,32 +25,125 @@
 
       --radius: 18px;
 
+      --paper: rgba(255, 255, 255, 0.72);
+      --paper-strong: rgba(255, 255, 255, 0.88);
+      --ink: #2f2a25;
+      --muted: #6b6258;
+      --accent: #2f6f63;         /* calm teal */
+      --accent-2: #8b6b3e;       /* warm bronze */
+      --border: rgba(47, 42, 37, 0.14);
+      --shadow: 0 10px 28px rgba(0,0,0,0.10);
+
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Cormorant Garamond", Garamond, serif;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      /* --- Calm card UI --- */
+      main, .panel, .card, #app, .box, .wrap, .row {
+        color: var(--ink);
+      }
+
+      section, .panel, .card, .box, #status, #trainer, #content {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(6px);
+      }
+
+      h1, h2, h3, .title {
+        color: var(--ink);
+        letter-spacing: 0.2px;
+      }
+
+      small, .muted, .subtle, .hint {
+        color: var(--muted);
+      }
+
+      /* Buttons */
+      button, .btn, input[type="button"] {
+        background: linear-gradient(180deg, var(--paper-strong), rgba(255,255,255,0.55));
+        border: 1px solid var(--border);
+        color: var(--ink);
+        border-radius: 12px;
+        padding: 10px 12px;
+        cursor: pointer;
+        transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+      }
+
+      button:hover, .btn:hover, input[type="button"]:hover {
+        transform: translateY(-1px);
+        border-color: rgba(47, 111, 99, 0.35);
+        box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+      }
+
+      button:active, .btn:active, input[type="button"]:active {
+        transform: translateY(0px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+      }
+
+      button.primary, .btn.primary {
+        background: linear-gradient(180deg, rgba(47,111,99,0.92), rgba(47,111,99,0.78));
+        border-color: rgba(47,111,99,0.55);
+        color: #fff;
+      }
+
+      button.primary:hover, .btn.primary:hover {
+        border-color: rgba(47,111,99,0.75);
+      }
+
+      /* Inputs */
+      input, select {
+        background: rgba(255,255,255,0.70);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 8px 10px;
+        color: var(--ink);
+        outline: none;
+      }
+
+      input:focus, select:focus {
+        border-color: rgba(47,111,99,0.55);
+        box-shadow: 0 0 0 3px rgba(47,111,99,0.15);
+}
+    }
+
+    body.embedded header {
+      display: none;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0;
-      color:var(--ink);
-      font-family:var(--sans);
-      background:
-        radial-gradient(1000px 700px at 12% 10%, rgba(47,111,237,.14), transparent 55%),
-        radial-gradient(900px 650px at 92% 12%, rgba(14,165,233,.12), transparent 58%),
-        radial-gradient(1100px 780px at 60% 110%, rgba(180,83,9,.12), transparent 62%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
-      overflow-x:hidden;
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background-color: #f4f1e8;
+      background-image:
+        radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 4px 4px, 6px 6px;
+      background-position: 0 0, 2px 2px;
+      color: #2f2a25;
     }
     body:before{
       content:"";
-      position:fixed; inset:0;
-      background-image:
-        linear-gradient(transparent 94%, rgba(0,0,0,.035) 94%),
-        linear-gradient(90deg, transparent 94%, rgba(0,0,0,.035) 94%);
-      background-size:28px 28px;
-      opacity:.16;
+      position:fixed;
+      inset:0;
+
+      background:
+        radial-gradient(circle at center,
+          transparent 60%,
+          rgba(0,0,0,0.08) 100%
+        ),
+        linear-gradient(transparent 94%, rgba(0,0,0,0.035) 94%),
+        linear-gradient(90deg, transparent 94%, rgba(0,0,0,0.035) 94%);
+
+      background-size:
+        100% 100%,
+        28px 28px,
+        28px 28px;
+
+      opacity:.18;
       pointer-events:none;
       mix-blend-mode:multiply;
     }
@@ -116,6 +209,17 @@
     main{max-width:1180px;margin:22px auto 0;padding:0 18px 46px}
     .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
     @media (max-width:940px){.grid{grid-template-columns:1fr}}
+    /* Mobile: keep sticky header from covering inputs */
+    @media (max-width:520px){
+      .wrap{ padding:10px 12px; }
+      .topbar{ gap:8px; }
+      .brand{ min-width:0; }
+      .title h1{ font-size:16px; }
+      .title p{ display:none; }            /* hides subtitle line on phones */
+      .banner{ padding:6px 10px; font-size:12px; }
+      nav{ justify-content:flex-start; }   /* nav flows under instead of squeezing */
+      main{ margin-top:12px; }             /* slightly less top margin */
+    }
     .card{
       background:var(--card);
       border:1px solid var(--stroke);
@@ -498,19 +602,18 @@ function saveStore(){
 const SEED_ENTRIES = [
  // ===== SEED_ENTRIES (Section 1: A → B) =====
 
-{unit:1, lemma:"a", pos:"prep", gloss:"from; away from; by (agency of)"},
+{unit:1, lemma:"a", pos:"prep", gloss:"from; away from; by (agency of)", prep:{governs:"abl"}},
 {unit:24, lemma:"accendo", pos:"verb", gloss:"kindle; set on fire", verb:{conj:3, pp:["accendo","accendere","accendi","accensus"]}},
 {unit:17, lemma:"acceptibilis", pos:"adj", gloss:"acceptable"},
 {unit:35, lemma:"accommodo", pos:"verb", gloss:"apply; fit; grant", verb:{conj:1, pp:["accommodo","accommodare","accommodavi","accommodatus"]}},
-
 {unit:16, lemma:"acer", pos:"adj", gloss:"sharp; bitter; ardent"},
 {unit:26, lemma:"acquisitio", pos:"noun", gloss:"purchase; acquisition", noun:{decl:3, gender:"f", nom:"acquisitio", gen:"acquisitionis"}},
-{unit:1, lemma:"ad", pos:"prep", gloss:"to; toward; for (the purpose of); at"},
+{unit:1, lemma:"ad", pos:"prep", gloss:"to; toward; for (the purpose of); at",prep:{governs:"abl"}},
 {unit:11, lemma:"Adam", pos:"noun", gloss:"Adam", noun:{decl:1, gender:"m", nom:"Adam", gen:"Adae"}},
 {unit:6, lemma:"adhuc", pos:"adv", gloss:"so far; till now; still"},
 {unit:7, lemma:"adjuvo", pos:"verb", gloss:"help", verb:{conj:1, pp:["adjuvo","adjuvare","adjuvi","adjutus"]}},
 {unit:17, lemma:"adventus", pos:"noun", gloss:"coming; advent", noun:{decl:4, gender:"m", nom:"adventus", gen:"adventus"}},
-{unit:32, lemma:"adversus", pos:"prep", gloss:"against"},
+{unit:32, lemma:"adversus", pos:"prep", gloss:"against", prep:{governs:"acc"}},
 {unit:4, lemma:"aeternus", pos:"adj", gloss:"eternal"},
 {unit:4, lemma:"in aeternum", pos:"phrase", gloss:"forever"},
 {unit:21, lemma:"affectus", pos:"noun", gloss:"devotion; affection; sense", noun:{decl:4, gender:"m", nom:"affectus", gen:"affectus"}},
@@ -537,7 +640,7 @@ const SEED_ENTRIES = [
 {unit:28, lemma:"amplus", pos:"adj", gloss:"abundant; ample"},
 {unit:28, lemma:"amplius", pos:"adv", gloss:"(any) more"},
 {unit:10, lemma:"annus", pos:"noun", gloss:"year", noun:{decl:2, gender:"m", nom:"annus", gen:"anni"}},
-{unit:10, lemma:"ante", pos:"prep", gloss:"before"},
+{unit:10, lemma:"ante", pos:"prep", gloss:"before", prep:{governs:"acc"}},
 {unit:12, lemma:"antequam", pos:"conj", gloss:"before"},
 {unit:4, lemma:"antiquus", pos:"adj", gloss:"old; ancient; (subst. pl.) ancestors; forefathers"},
 {unit:22, lemma:"antistes", pos:"noun", gloss:"bishop", noun:{decl:3, gender:"m", nom:"antistes", gen:"antistitis"}},
@@ -548,7 +651,7 @@ const SEED_ENTRIES = [
 {unit:19, lemma:"appareo", pos:"verb", gloss:"show forth; appear", verb:{conj:2, pp:["appareo","apparere","apparui","apparitus"]}},
 {unit:31, lemma:"appropinquo", pos:"verb", gloss:"draw near; approach", verb:{conj:1, pp:["appropinquo","appropinquare","appropinquavi","appropinquatus"]}},
 {unit:15, lemma:"aptus", pos:"adj", gloss:"fitting; suitable; apt"},
-{unit:11, lemma:"apud", pos:"prep", gloss:"in the presence of; among; at the house of"},
+{unit:11, lemma:"apud", pos:"prep", gloss:"in the presence of; among; at the house of",prep:{governs:"acc"}},
 {unit:1, lemma:"aqua", pos:"noun", gloss:"water", noun:{decl:1, gender:"f", nom:"aqua", gen:"aquae"}},
 {unit:20, lemma:"arbor", pos:"noun", gloss:"tree", noun:{decl:3, gender:"f", nom:"arbor", gen:"arboris"}},
 {unit:28, lemma:"ardeo", pos:"verb", gloss:"burn", verb:{conj:2, pp:["ardeo","ardere","arsi","arsus"]}},
@@ -610,7 +713,7 @@ const SEED_ENTRIES = [
 {unit:6, lemma:"Christianus", pos:"adj", gloss:"Christian"},
 {unit:2, lemma:"Christus", pos:"noun", gloss:"Christ; Messiah", noun:{decl:2, gender:"m", nom:"Christus", gen:"Christi"}},
 {unit:11, lemma:"cibus", pos:"noun", gloss:"food", noun:{decl:2, gender:"m", nom:"cibus", gen:"cibi"}},
-{unit:25, lemma:"circa", pos:"prep", gloss:"around; about"},
+{unit:25, lemma:"circa", pos:"prep", gloss:"around; about",prep:{governs:"acc"}},
 {unit:35, lemma:"civitas", pos:"noun", gloss:"city; state", noun:{decl:3, gender:"f", nom:"civitas", gen:"civitatis"}},
 {unit:12, lemma:"clamo", pos:"verb", gloss:"cry out; shout; call upon", verb:{conj:1, pp:["clamo","clamare","clamavi","clamatus"]}},
 {unit:22, lemma:"claritas", pos:"noun", gloss:"brightness; glory; fame", noun:{decl:3, gender:"f", nom:"claritas", gen:"claritatis"}},
@@ -631,9 +734,9 @@ const SEED_ENTRIES = [
 {unit:20, lemma:"confido", pos:"verb", gloss:"trust (in); hope (in)", verb:{conj:3, pp:["confido","confidere","-","confisus sum"]}},
 {unit:22, lemma:"conor", pos:"verb", gloss:"try; strive", verb:{conj:"dep", pp:["conor","conari","-","conatus sum"]}},
 {unit:11, lemma:"conspectus", pos:"noun", gloss:"sight; presence", noun:{decl:4, gender:"m", nom:"conspectus", gen:"conspectus"}},
-{unit:28, lemma:"contra", pos:"prep", gloss:"against; opposite (to)"},
+{unit:28, lemma:"contra", pos:"prep", gloss:"against; opposite (to)", prep:{governs:"acc"}},
 {unit:15, lemma:"cor", pos:"noun", gloss:"heart", noun:{decl:3, gender:"n", nom:"cor", gen:"cordis"}},
-{unit:1, lemma:"coram", pos:"prep", gloss:"in the presence of"},
+{unit:1, lemma:"coram", pos:"prep", gloss:"in the presence of", prep:{governs:"abl"}},
 {unit:21, lemma:"corona", pos:"noun", gloss:"wreath; crown", noun:{decl:1, gender:"f", nom:"corona", gen:"coronae"}},
 {unit:14, lemma:"corpus", pos:"noun", gloss:"body; corpse", noun:{decl:3, gender:"n", nom:"corpus", gen:"corporis"}},
 {unit:18, lemma:"cotidie", pos:"adv", gloss:"daily"},
@@ -644,7 +747,7 @@ const SEED_ENTRIES = [
 {unit:24, lemma:"crimen", pos:"noun", gloss:"guilt; sin", noun:{decl:3, gender:"n", nom:"crimen", gen:"criminis"}},
 {unit:16, lemma:"crux", pos:"noun", gloss:"cross", noun:{decl:3, gender:"f", nom:"crux", gen:"crucis"}},
 {unit:1, lemma:"culpa", pos:"noun", gloss:"blame; fault", noun:{decl:1, gender:"f", nom:"culpa", gen:"culpae"}},
-{unit:1, lemma:"cum", pos:"prep", gloss:"with"},
+{unit:1, lemma:"cum", pos:"prep", gloss:"with", prep:{governs:"abl"}},
 {unit:13, lemma:"cum", pos:"conj", gloss:"when; after; since; although"},
 {unit:8, lemma:"cunctus", pos:"adj", gloss:"all"},
 {unit:11, lemma:"cura", pos:"noun", gloss:"care; concern", noun:{decl:1, gender:"f", nom:"cura", gen:"curae"}},
@@ -656,7 +759,7 @@ const SEED_ENTRIES = [
 
 {unit:31, lemma:"daemonium", pos:"noun", gloss:"evil spirit; demon", noun:{decl:2, gender:"n", nom:"daemonium", gen:"daemonii"}},
 {unit:33, lemma:"damnum", pos:"noun", gloss:"damage; loss; punishment", noun:{decl:2, gender:"n", nom:"damnum", gen:"damni"}},
-{unit:1, lemma:"de", pos:"prep", gloss:"from; down from; about; concerning"},
+{unit:1, lemma:"de", pos:"prep", gloss:"from; down from; about; concerning", prep:{governs:"abl"}},
 {unit:12, lemma:"debeo", pos:"verb", gloss:"owe; ought", verb:{conj:2, pp:["debeo","debere","debui","debitus"]}},
 {unit:26, lemma:"debitor", pos:"noun", gloss:"debtor", noun:{decl:3, gender:"m", nom:"debitor", gen:"debitoris"}},
 {unit:10, lemma:"debitum", pos:"noun", gloss:"debt", noun:{decl:2, gender:"n", nom:"debitum", gen:"debiti"}},
@@ -698,7 +801,7 @@ const SEED_ENTRIES = [
 {unit:7, lemma:"indignus", pos:"adj", gloss:"unworthy (of)"},
 {unit:9, lemma:"disciplina", pos:"noun", gloss:"instruction; discipline", noun:{decl:1, gender:"f", nom:"disciplina", gen:"disciplinae"}},
 {unit:9, lemma:"discipulus", pos:"noun", gloss:"student; disciple", noun:{decl:2, gender:"m", nom:"discipulus", gen:"discipuli"}},
-{unit:9, lemma:"disco", pos:"verb", gloss:"learn", verb:{conj:3, pp:["disco","discere","didici","-"]}},
+{unit:35, lemma:"disco", pos:"verb", gloss:"learn", verb:{conj:3, pp:["disco","discere","didici","-"]}},
 {unit:19, lemma:"dispono", pos:"verb", gloss:"arrange; order", verb:{conj:3, pp:["dispono","disponere","disposui","dispositus"]}},
 {unit:12, lemma:"dissimilis", pos:"adj", gloss:"unlike; different"},
 {unit:6, lemma:"do", pos:"verb", gloss:"give", verb:{conj:1, pp:["do","dare","dedi","datus"]}},
@@ -712,7 +815,7 @@ const SEED_ENTRIES = [
 {unit:6, lemma:"perduco", pos:"verb", gloss:"lead through; bring to completion", verb:{conj:3, pp:["perduco","perducere","perduxi","perductus"]}},
 {unit:6, lemma:"reduco", pos:"verb", gloss:"lead back; bring back", verb:{conj:3, pp:["reduco","reducere","reduxi","reductus"]}},
 {unit:13, lemma:"dum", pos:"conj", gloss:"while; as long as"},
-{unit:1, lemma:"e", pos:"prep", gloss:"out of; from; by (means of)"},
+{unit:1, lemma:"e", pos:"prep", gloss:"out of; from; by (means of)", prep:{governs:"abl"}},
 {unit:28, lemma:"ebrius", pos:"adj", gloss:"drunk"},
 {unit:26, lemma:"ecce", pos:"interj", gloss:"behold! look!"},
 {unit:6, lemma:"ecclesia", pos:"noun", gloss:"church", noun:{decl:1, gender:"f", nom:"ecclesia", gen:"ecclesiae"}},
@@ -721,20 +824,20 @@ const SEED_ENTRIES = [
 {unit:24, lemma:"effundo", pos:"verb", gloss:"pour out; shed", verb:{conj:3, pp:["effundo","effundere","effudi","effusus"]}},
 {unit:18, lemma:"ego", pos:"pron", gloss:"I"},
 {unit:13, lemma:"egredior", pos:"verb", gloss:"go out; depart", verb:{conj:"dep", pp:["egredior","egredi","-","egressus sum"]}},
-{unit:6, lemma:"emo", pos:"verb", gloss:"buy; purchase", verb:{conj:3, pp:["emo","emere","emi","emptus"]}},
+{unit:27, lemma:"emo", pos:"verb", gloss:"buy; purchase", verb:{conj:3, pp:["emo","emere","emi","emptus"]}},
 {unit:16, lemma:"enim", pos:"conj", gloss:"for; indeed"},
-{unit:15, lemma:"episcopus", pos:"noun", gloss:"bishop", noun:{decl:2, gender:"m", nom:"episcopus", gen:"episcopi"}},
+{unit:3, lemma:"episcopus", pos:"noun", gloss:"bishop", noun:{decl:2, gender:"m", nom:"episcopus", gen:"episcopi"}},
 {unit:15, lemma:"epistula", pos:"noun", gloss:"letter; epistle", noun:{decl:1, gender:"f", nom:"epistula", gen:"epistulae"}},
 {unit:13, lemma:"etsi", pos:"conj", gloss:"even if; although"},
-{unit:11, lemma:"et", pos:"conj", gloss:"and"},
+{unit:1, lemma:"et", pos:"conj", gloss:"and"},
 {unit:9, lemma:"etiam", pos:"adv", gloss:"also; even"},
 {unit:24, lemma:"evangelista", pos:"noun", gloss:"evangelist", noun:{decl:1, gender:"m", nom:"evangelista", gen:"evangelistae"}},
 {unit:3, lemma:"Evangelium", pos:"noun", gloss:"Gospel; Good News", noun:{decl:2, gender:"n", nom:"Evangelium", gen:"Evangelii"}},
-{unit:19, lemma:"ex", pos:"prep", gloss:"out of; from; by means of"},
+{unit:1, lemma:"ex", pos:"prep", gloss:"out of; from; by means of", prep:{governs:"abl"}},
 {unit:19, lemma:"exemplum", pos:"noun", gloss:"example", noun:{decl:2, gender:"n", nom:"exemplum", gen:"exempli"}},
 {unit:31, lemma:"exeo", pos:"verb", gloss:"go out; depart", verb:{conj:"irreg", pp:["exeo","exire","exii","exitus"]}},
 {unit:12, lemma:"exerceo", pos:"verb", gloss:"exercise; practice", verb:{conj:2, pp:["exerceo","exercere","exercui","exercitus"]}},
-{unit:19, lemma:"exsulto", pos:"verb", gloss:"rejoice; exult", verb:{conj:1, pp:["exsulto","exsultare","exsultavi","exsultatus"]}},
+{unit:11, lemma:"exsulto", pos:"verb", gloss:"rejoice; exult", verb:{conj:1, pp:["exsulto","exsultare","exsultavi","exsultatus"]}},
 {unit:12, lemma:"extollo", pos:"verb", gloss:"raise up; exalt", verb:{conj:3, pp:["extollo","extollere","extuli","elatus"]}},
 {unit:9, lemma:"facile", pos:"adv", gloss:"easily"},
 {unit:6, lemma:"facio", pos:"verb", gloss:"do; make", verb:{conj:"3io", pp:["facio","facere","feci","factus"]}},
@@ -802,20 +905,20 @@ const SEED_ENTRIES = [
 {unit:24, lemma:"immolo", pos:"verb", gloss:"sacrifice; offer", verb:{conj:1, pp:["immolo","immolare","immolavi","immolatus"]}},
 {unit:19, lemma:"imperium", pos:"noun", gloss:"command; authority; power", noun:{decl:2, gender:"n", nom:"imperium", gen:"imperii"}},
 {unit:7, lemma:"impero", pos:"verb", gloss:"command; order", verb:{conj:1, pp:["impero","imperare","imperavi","imperatus"]}},
-{unit:12, lemma:"impius", pos:"adj", gloss:"wicked; impious"},
-{unit:1, lemma:"in", pos:"prep", gloss:"in; on"},
-{unit:1, lemma:"in", pos:"prep", gloss:"into; onto"},
+{unit:10, lemma:"impius", pos:"adj", gloss:"wicked; impious"},
+{unit:1, lemma:"in", pos:"prep", gloss:"in; on", prep:{governs:"acc"}},
+{unit:1, lemma:"in", pos:"prep", gloss:"into; onto",prep:{governs:"abl"}},
 {unit:3, lemma:"in saecula (saeculorum)", pos:"phrase", gloss:"forever; unto ages (of ages)"},
 {unit:13, lemma:"incarno", pos:"verb", gloss:"incarnate; make flesh", verb:{conj:1, pp:["incarno","incarnare","incarnavi","incarnatus"]}},
 {unit:12, lemma:"incipio", pos:"verb", gloss:"begin", verb:{conj:"3io", pp:["incipio","incipere","incepi","inceptus"]}},
-{unit:19, lemma:"inclino", pos:"verb", gloss:"bend; incline", verb:{conj:1, pp:["inclino","inclinare","inclinavi","inclinatus"]}},
+{unit:10, lemma:"inclino", pos:"verb", gloss:"bend; incline", verb:{conj:1, pp:["inclino","inclinare","inclinavi","inclinatus"]}},
 {unit:20, lemma:"induo", pos:"verb", gloss:"put on; clothe", verb:{conj:3, pp:["induo","induere","indui","indutus"]}},
 {unit:19, lemma:"infans", pos:"noun", gloss:"infant; child", noun:{decl:3, gender:"m/f", nom:"infans", gen:"infantis"}},
 {unit:6, lemma:"invenio", pos:"verb", gloss:"find; discover", verb:{conj:4, pp:["invenio","invenire","inveni","inventus"]}},
 {unit:11, lemma:"ipse", pos:"pron", gloss:"self; himself; herself; itself"},
 {unit:6, lemma:"ira", pos:"noun", gloss:"anger; wrath", noun:{decl:1, gender:"f", nom:"ira", gen:"irae"}},
 {unit:28, lemma:"iste", pos:"pron", gloss:"that (of yours); that near you"},
-{unit:5, lemma:"iustus", pos:"adj", gloss:"just; righteous"},
+{unit:5, lemma:"justus", pos:"adj", gloss:"just; righteous"},
 {unit:2, lemma:"Jerusalem", pos:"noun", gloss:"Jerusalem", noun:{decl:3, gender:"f", nom:"Jerusalem", gen:"Jerusalem"}},
 {unit:2, lemma:"Jesus", pos:"noun", gloss:"Jesus", noun:{decl:2, gender:"m", nom:"Jesus", gen:"Jesu"}},
 {unit:16, lemma:"judex", pos:"noun", gloss:"judge", noun:{decl:3, gender:"m", nom:"judex", gen:"judicis"}},
@@ -876,7 +979,7 @@ const SEED_ENTRIES = [
 {unit:2, lemma:"noster", pos:"adj", gloss:"our"},
 {unit:9, lemma:"novus", pos:"adj", gloss:"new"},
 {unit:5, lemma:"nunc", pos:"adv", gloss:"now"},
-{unit:18, lemma:"ob", pos:"prep", gloss:"on account of; because of"},
+{unit:18, lemma:"ob", pos:"prep", gloss:"on account of; because of", prep:{governs:"abl"}},
 {unit:14, lemma:"oblatio", pos:"noun", gloss:"offering", noun:{decl:3, gender:"f", nom:"oblatio", gen:"oblationis"}},
 {unit:29, lemma:"oblitus", pos:"adj", gloss:"forgetful"},
 {unit:13, lemma:"oculus", pos:"noun", gloss:"eye", noun:{decl:2, gender:"m", nom:"oculus", gen:"oculi"}},
@@ -891,7 +994,7 @@ const SEED_ENTRIES = [
 {unit:6, lemma:"pars", pos:"noun", gloss:"part; share", noun:{decl:3, gender:"f", nom:"pars", gen:"partis"}},
 {unit:6, lemma:"pax", pos:"noun", gloss:"peace", noun:{decl:3, gender:"f", nom:"pax", gen:"pacis"}},
 {unit:3, lemma:"peccatum", pos:"noun", gloss:"sin", noun:{decl:2, gender:"n", nom:"peccatum", gen:"peccati"}},
-{unit:6, lemma:"per", pos:"prep", gloss:"through; by means of"},
+{unit:6, lemma:"per", pos:"prep", gloss:"through; by means of", prep:{governs:"acc"}},
 {unit:13, lemma:"perdo", pos:"verb", gloss:"destroy; lose", verb:{conj:3, pp:["perdo","perdere","perdidi","perditus"]}},
 {unit:12, lemma:"pervenio", pos:"verb", gloss:"arrive; reach", verb:{conj:4, pp:["pervenio","pervenire","perveni","perventus"]}},
 {unit:6, lemma:"petitio", pos:"noun", gloss:"request; petition", noun:{decl:3, gender:"f", nom:"petitio", gen:"petitionis"}},
@@ -905,7 +1008,7 @@ const SEED_ENTRIES = [
 {unit:6, lemma:"precor", pos:"verb", gloss:"pray; beg", verb:{conj:"dep", pp:["precor","precari","-","precatus sum"]}},
 {unit:6, lemma:"primus", pos:"adj", gloss:"first"},
 {unit:13, lemma:"primum", pos:"adv", gloss:"at first; first of all"},
-{unit:6, lemma:"pro", pos:"prep", gloss:"for; on behalf of; in place of"},
+{unit:6, lemma:"pro", pos:"prep", gloss:"for; on behalf of; in place of", prep:{governs:"abl"}},
 {unit:21, lemma:"procedo", pos:"verb", gloss:"go forward; proceed", verb:{conj:3, pp:["procedo","procedere","processi","processus"]}},
 {unit:6, lemma:"promitto", pos:"verb", gloss:"promise", verb:{conj:3, pp:["promitto","promittere","promisi","promissus"]}},
 {unit:19, lemma:"propitius", pos:"adj", gloss:"favorable; gracious"},
@@ -920,7 +1023,7 @@ const SEED_ENTRIES = [
 {unit:14, lemma:"quamquam", pos:"conj", gloss:"although"},
 
 {unit:3, lemma:"regina", pos:"noun", gloss:"queen", noun:{decl:1, gender:"f", nom:"regina", gen:"reginae"}},
-{unit:32, lemma:"regio", pos:"noun", gloss:"country; region", noun:{decl:3, gender:"f", nom:"regio", gen:"regionis"}},
+{unit:5, lemma:"regio", pos:"noun", gloss:"country; region", noun:{decl:3, gender:"f", nom:"regio", gen:"regionis"}},
 {unit:5, lemma:"regno", pos:"verb", gloss:"rule; reign", verb:{conj:1, pp:["regno","regnare","regnavi","regnatus"]}},
 {unit:3, lemma:"regnum", pos:"noun", gloss:"kingdom; rule", noun:{decl:2, gender:"n", nom:"regnum", gen:"regni"}},
 {unit:5, lemma:"rego", pos:"verb", gloss:"rule; guide; govern", verb:{conj:3, pp:["rego","regere","rexi","rectus"]}},
@@ -970,15 +1073,15 @@ const SEED_ENTRIES = [
 {unit:6, lemma:"signum", pos:"noun", gloss:"sign; mark; signal", noun:{decl:2, gender:"n", nom:"signum", gen:"signi"}},
 {unit:6, lemma:"similis", pos:"adj", gloss:"like; similar"},
 {unit:6, lemma:"simul", pos:"adv", gloss:"at the same time; together"},
-{unit:6, lemma:"sine", pos:"prep", gloss:"without"},
+{unit:6, lemma:"sine", pos:"prep", gloss:"without", prep:{governs:"abl"}},
 {unit:6, lemma:"solus", pos:"adj", gloss:"alone; only"},
 {unit:19, lemma:"somnus", pos:"noun", gloss:"sleep", noun:{decl:2, gender:"m", nom:"somnus", gen:"somni"}},
 {unit:7, lemma:"spes", pos:"noun", gloss:"hope", noun:{decl:5, gender:"f", nom:"spes", gen:"spei"}},
 {unit:3, lemma:"spiritus", pos:"noun", gloss:"spirit; breath", noun:{decl:4, gender:"m", nom:"spiritus", gen:"spiritus"}},
 {unit:6, lemma:"sto", pos:"verb", gloss:"stand", verb:{conj:1, pp:["sto","stare","steti","status"]}},
-{unit:6, lemma:"sub", pos:"prep", gloss:"under"},
+{unit:6, lemma:"sub", pos:"prep", gloss:"under", prep:{governs:"abl"}},
 {unit:12, lemma:"sum", pos:"verb", gloss:"be; exist", verb:{conj:"irreg", pp:["sum","esse","fui","futurus"]}},
-{unit:13, lemma:"super", pos:"prep", gloss:"over; above; about"},
+{unit:13, lemma:"super", pos:"prep", gloss:"over; above; about", prep:{governs:"abl"}},
 // ===== SEED_ENTRIES (Section 15: T) =====
 
 {unit:31, lemma:"taceo", pos:"verb", gloss:"be silent", verb:{conj:2, pp:["taceo","tacere","tacui","tacitus"]}},
@@ -1080,6 +1183,7 @@ function denySuggestion(id){
    ========================= */
 const DEFAULT_STORE = {
   entries: SEED_ENTRIES,
+  adminComment: "",
   settings:{ ignoreMacrons:true },
   moderation:{
     adminPin:"0117",
@@ -1487,6 +1591,18 @@ function Layout(title, subtitle, content){
         <div class="hr"></div>
         <div class="tiny">
           Tip: If an answer is correct but marked wrong, click <b>My answer was right</b> → approve in Admin.
+                  <div class="hr"></div>
+
+        <h3 style="margin-top:10px;">Admin Comments</h3>
+        <div id="adminCommentDisplay"
+        style="margin-bottom:10px; font-size:16px; line-height:1.6;"></div>
+        <div id="adminCommentEditor" style="display:none; margin-top:8px;">
+          <textarea id="adminCommentInput"
+                  style="width:100%; min-height:70px; resize:vertical;"></textarea>
+          <button id="adminCommentSave" class="btn primary" style="margin-top:6px;">
+            Save Comment
+          </button>
+        </div>
         </div>
       </div>
     </div>
@@ -1888,6 +2004,86 @@ function recordMCQ(mode, ok){
   saveStore();
 }
 
+// =========================
+// Weighted question picking (missed-more => more frequent)
+// =========================
+
+// Build the same key you record under in pickChoice()
+function masteryKeyForEntry(runType, entry, features = "mcq") {
+  const lemma = entry?.lemma || entry?.id || "unknown";
+  return overrideKey(runType, lemma, features);
+}
+
+// Higher weight for items missed more often.
+// You can tweak the constants to taste.
+function weightFromMasteryItem(it) {
+  if (!it || !it.seen) return 3.0; // unseen gets a healthy boost
+
+  const wrongs = (it.seen - (it.correct || 0));
+  const lapses = (it.lapses || 0);
+  const mastery = Number(it.mastery || 0);
+
+  // Intuition:
+  // - wrongs: direct "how often they miss"
+  // - lapses: strong "this item causes failure"
+  // - (1 - mastery): favors weak items even if fewer attempts
+  const w =
+    1.0 +
+    0.9 * wrongs +
+    1.8 * lapses +
+    2.2 * (1 - mastery);
+
+  // keep it sane
+  return Math.max(0.2, Math.min(25, w));
+}
+
+// Weighted random pick with an optional "avoid repeat" key
+function weightedPick(arr, getWeight, avoidKey = null, getKey = null) {
+  if (!arr.length) return null;
+
+  // First pass: compute total weight
+  let total = 0;
+  const weights = new Array(arr.length);
+
+  for (let i = 0; i < arr.length; i++) {
+    const item = arr[i];
+    const key = getKey ? getKey(item) : null;
+    const w = (avoidKey && key === avoidKey) ? 0 : Math.max(0, getWeight(item));
+    weights[i] = w;
+    total += w;
+  }
+
+  // Fallback if everything got zeroed
+  if (total <= 0) {
+    // just return a random item different from avoidKey if possible
+    const filtered = (avoidKey && getKey) ? arr.filter(x => getKey(x) !== avoidKey) : arr;
+    return filtered[Math.floor(Math.random() * filtered.length)];
+  }
+
+  // Roulette wheel selection
+  let r = Math.random() * total;
+  for (let i = 0; i < arr.length; i++) {
+    r -= weights[i];
+    if (r <= 0) return arr[i];
+  }
+  return arr[arr.length - 1];
+}
+
+// Pick an entry from the pool biased toward missed items
+function pickEntryBiased(R, features = "mcq") {
+  const avoid = R?.q?.entry ? masteryKeyForEntry(R.type, R.q.entry, features) : null;
+
+  return weightedPick(
+    R.pool,
+    (entry) => {
+      const key = masteryKeyForEntry(R.type, entry, features);
+      const it = STORE.mastery?.items?.[key];
+      return weightFromMasteryItem(it);
+    },
+    avoid,
+    (entry) => masteryKeyForEntry(R.type, entry, features)
+  );
+}
 
 /* =========================
    Shared MCQ runner (vocab / preps / verbmeta)
@@ -1948,14 +2144,14 @@ function pickChoice(choice){
   }, 650);
 }
 function buildVocabQ(R){
-  const entry = R.pool[Math.floor(Math.random()*R.pool.length)];
+  const entry = pickEntryBiased(R, "mcq");
   const correct = entry.gloss.trim();
   const wrongs = shuffle(R.pool.filter(x=>x!==entry).map(x=>x.gloss.trim())).filter(Boolean).slice(0,3);
   const choices = shuffle([correct, ...wrongs]);
   return {entry, prompt: entry.lemma, correct, choices, picked:null, timeLeft:R.seconds};
 }
 function buildPrepsQ(R){
-  const entry = R.pool[Math.floor(Math.random()*R.pool.length)];
+  const entry = pickEntryBiased(R, "mcq");
   const correct = `${entry.gloss.trim()} • ${entry.prep.governs.toUpperCase()}`;
   const wrongs = shuffle(R.pool.filter(x=>x!==entry)).slice(0,3).map(x=>`${x.gloss.trim()} • ${x.prep.governs.toUpperCase()}`);
   const choices = shuffle([correct, ...wrongs]);
@@ -2969,6 +3165,7 @@ function importJSONFromBox(){
 function render(){
   renderNav();
   const app = $("#app");
+  
 
   switch(STATE.route){
     case "#/":
@@ -3011,6 +3208,7 @@ function render(){
 
     default:
       app.innerHTML = Home();
+      
   }
 
   bindCommon();
@@ -3036,6 +3234,20 @@ function render(){
      </span>`
   : `No progress yet • <span class="tiny">Answer a few questions</span>`;
 
+  }
+    const msg = document.getElementById("adminCommentDisplay");
+  if (msg) {
+    msg.innerHTML = escapeHtml(STORE.adminComment || "No admin message yet.");
+  }
+  const editorWrap = document.getElementById("adminCommentEditor");
+  const input = document.getElementById("adminCommentInput");
+
+  if (editorWrap && input) {
+   const isAdmin =
+      (typeof isAuthed === "function" && isAuthed()) ||
+      (Date.now() < (STORE.moderation?.sessionAuthedUntil || 0));
+    editorWrap.style.display = isAdmin ? "block" : "none";
+    input.value = STORE.adminComment || "";
   }
 }
 
@@ -3096,6 +3308,18 @@ if(reset) reset.addEventListener("click", ()=>{
 
   const clear = $("[data-act='clearRun']");
   if(clear) clear.addEventListener("click", ()=>{ STATE.run=null; toast("Cleared.", "ok"); render(); });
+
+const saveBtn = document.getElementById("adminCommentSave");
+const input = document.getElementById("adminCommentInput");
+
+  if (saveBtn && input) {
+    saveBtn.addEventListener("click", () => {
+      STORE.adminComment = (input.value || "").trim();
+      saveStore();
+      toast("Admin comment saved.", "ok");
+      render();
+    });
+  }
 }
 
 function bindRunMCQClicks(){
@@ -3327,6 +3551,9 @@ window.addEventListener("hashchange", ()=>{
   STATE.route = location.hash || "#/";
   render();
 });
+if (window.self !== window.top) {
+  document.body.classList.add("embedded");
+}
 render();
 </script>
 </body>
