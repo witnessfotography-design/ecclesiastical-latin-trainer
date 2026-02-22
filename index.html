@@ -105,7 +105,9 @@
       input:focus, select:focus {
         border-color: rgba(47,111,99,0.55);
         box-shadow: 0 0 0 3px rgba(47,111,99,0.15);
-}
+      }
+
+      
     }
 
     *{box-sizing:border-box}
@@ -492,6 +494,37 @@
     .choice:hover{transform:translateY(-1px);border-color:var(--stroke2)}
     .choice.good{border-color:rgba(22,163,74,.45);background:rgba(22,163,74,.08)}
     .choice.bad{border-color:rgba(220,38,38,.45);background:rgba(220,38,38,.08)}
+
+    /* MCQ answer feedback flash */
+    .choice{
+      transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+    }
+
+    .choice.good{
+      border-color: rgba(47,111,99,.65);
+      background: rgba(47,111,99,.14);
+      box-shadow: 0 0 0 3px rgba(47,111,99,.16);
+      animation: mcqGood 420ms ease-out;
+    }
+
+    .choice.bad{
+      border-color: rgba(160,48,48,.65);
+      background: rgba(160,48,48,.14);
+      box-shadow: 0 0 0 3px rgba(160,48,48,.14);
+      animation: mcqBad 420ms ease-out;
+    }
+
+    @keyframes mcqGood{
+      0%{ transform: scale(1); }
+      40%{ transform: scale(1.02); }
+      100%{ transform: scale(1); }
+    }
+    @keyframes mcqBad{
+      0%{ transform: scale(1); }
+      35%{ transform: translateX(-2px); }
+      70%{ transform: translateX(2px); }
+      100%{ transform: translateX(0); }
+    }
 
     .toast{
       position:fixed; right:16px; bottom:16px;
@@ -2109,6 +2142,7 @@ function pickChoice(choice){
   R.locked=true;
   R.q.picked=choice;
   const ok = choice===R.q.correct;
+  render(); // show green/red highlight immediately
   
   if(choice !== "__timeout__"){
     recordMCQ(R.type, ok);
