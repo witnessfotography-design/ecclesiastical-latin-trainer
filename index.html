@@ -764,7 +764,7 @@ const SEED_ENTRIES = [
 {unit:22, lemma:"conor", pos:"verb", gloss:"try; strive", verb:{conj:"dep", pp:["conor","conari","-","conatus sum"]}},
 {unit:11, lemma:"conspectus", pos:"noun", gloss:"sight; presence", noun:{decl:4, gender:"m", nom:"conspectus", gen:"conspectus"}},
 {unit:28, lemma:"contra", pos:"prep", gloss:"against; opposite (to)", prep:{governs:"acc"}},
-{unit:15, lemma:"cor", pos:"noun", gloss:"heart", noun:{decl:3, gender:"n", nom:"cor", gen:"cordis"}},
+{unit:15, lemma:"cor", pos:"noun", gloss:"heart", noun:{decl:3, gender:"n", nom:"cor", gen:"cordis", genPl:"cordium"}},
 {unit:1, lemma:"coram", pos:"prep", gloss:"in the presence of", prep:{governs:"abl"}},
 {unit:21, lemma:"corona", pos:"noun", gloss:"wreath; crown", noun:{decl:1, gender:"f", nom:"corona", gen:"coronae"}},
 {unit:14, lemma:"corpus", pos:"noun", gloss:"body; corpse", noun:{decl:3, gender:"n", nom:"corpus", gen:"corporis"}},
@@ -799,7 +799,7 @@ const SEED_ENTRIES = [
 {unit:19, lemma:"deinde", pos:"adv", gloss:"then; next; thereupon"},
 {unit:6, lemma:"deleo", pos:"verb", gloss:"destroy; wipe out", verb:{conj:2, pp:["deleo","delere","delevi","deletus"]}},
 {unit:23, lemma:"delicia", pos:"noun", gloss:"pleasure; delight", noun:{decl:1, gender:"f", nom:"delicia", gen:"deliciae"}},
-{unit:14, lemma:"deprecatio", pos:"noun", gloss:"earnest prayer; supplication", noun:{decl:3, gender:"f", nom:"deprecatio", gen:"deprecationis"}},
+{unit:14, lemma:"deprecatio", pos:"noun", gloss:"earnest prayer", noun:{decl:3, gender:"f", nom:"deprecatio", gen:"deprecationis"}},
 {unit:13, lemma:"desertus", pos:"adj", gloss:"forsaken; deserted"},
 {unit:13, lemma:"desertum", pos:"noun", gloss:"desert", noun:{decl:2, gender:"n", nom:"desertum", gen:"deserti"}},
 {unit:10, lemma:"desiderium", pos:"noun", gloss:"want; need; desire", noun:{decl:2, gender:"n", nom:"desiderium", gen:"desiderii"}},
@@ -886,10 +886,10 @@ const SEED_ENTRIES = [
 {unit:15, lemma:"fervor", pos:"noun", gloss:"heat; zeal; fervor", noun:{decl:3, gender:"m", nom:"fervor", gen:"fervoris"}},
 {unit:7, lemma:"festum", pos:"noun", gloss:"feast; festival", noun:{decl:2, gender:"n", nom:"festum", gen:"festi"}},
 {unit:15, lemma:"fidelis", pos:"adj", gloss:"faithful"},
-{unit:7, lemma:"fides", pos:"noun", gloss:"faith; trust", noun:{decl:3, gender:"f", nom:"fides", gen:"fidei"}},
+{unit:14, lemma:"fides", pos:"noun", gloss:"faith; trust", noun:{decl:3, gender:"f", nom:"fides", gen:"fidei"}},
 {unit:7, lemma:"filia", pos:"noun", gloss:"daughter", noun:{decl:1, gender:"f", nom:"filia", gen:"filiae"}},
 {unit:7, lemma:"filius", pos:"noun", gloss:"son", noun:{decl:2, gender:"m", nom:"filius", gen:"filii"}},
-{unit:19, lemma:"finis", pos:"noun", gloss:"end; boundary; purpose", noun:{decl:3, gender:"m", nom:"finis", gen:"finis"}},
+{unit:15, lemma:"finis", pos:"noun", gloss:"end", noun:{decl:3, gender:"m/f", nom:"finis", gen:"finis", genPl:"finium"}},
 {unit:28, lemma:"firmus", pos:"adj", gloss:"firm; steadfast"},
 {unit:19, lemma:"flamma", pos:"noun", gloss:"flame", noun:{decl:1, gender:"f", nom:"flamma", gen:"flammae"}},
 {unit:25, lemma:"flumen", pos:"noun", gloss:"river", noun:{decl:3, gender:"n", nom:"flumen", gen:"fluminis"}},
@@ -903,7 +903,7 @@ const SEED_ENTRIES = [
 {unit:6, lemma:"fugo", pos:"verb", gloss:"chase away; put to flight", verb:{conj:"1st", pp:["fugo","fugare","fugavi","fugatus"]}},
 {unit:3, lemma:"gaudium", pos:"noun", gloss:"joy", noun:{decl:2, gender:"n", nom:"gaudium", gen:"gaudii"}},
 {unit:24, lemma:"gemitus", pos:"noun", gloss:"groan; sigh", noun:{decl:4, gender:"m", nom:"gemitus", gen:"gemitus"}},
-{unit:1, lemma:"genus", pos:"noun", gloss:"race; kind; type", noun:{decl:3, gender:"n", nom:"genus", gen:"generis"}},
+{unit:14, lemma:"genus", pos:"noun", gloss:"kind; race", noun:{decl:3, gender:"n", nom:"genus", gen:"generis"}},
 {unit:24, lemma:"gens", pos:"noun", gloss:"nation; people", noun:{decl:3, gender:"f", nom:"gens", gen:"gentis"}},
 {unit:28, lemma:"genu", pos:"noun", gloss:"knee", noun:{decl:4, gender:"n", nom:"genu", gen:"genus"}},
 {unit:9, lemma:"gloria", pos:"noun", gloss:"glory; fame", noun:{decl:1, gender:"f", nom:"gloria", gen:"gloriae"}},
@@ -918,12 +918,12 @@ const SEED_ENTRIES = [
 {unit:3, lemma:"hic", pos:"adv", gloss:"here; in this place"},
 {unit:7, lemma:"hic", pos:"pron", gloss:"this (man); this (woman); this (thing)"},
 {unit:19, lemma:"hodie", pos:"adv", gloss:"today"},
-{unit:7, lemma:"homo", pos:"noun", gloss:"man; human being", noun:{decl:3, gender:"m", nom:"homo", gen:"hominis"}},
+{unit:14, lemma:"homo", pos:"noun", gloss:"human being", noun:{decl:3, gender:"m", nom:"homo", gen:"hominis"}},
 {unit:24, lemma:"honor", pos:"noun", gloss:"honor; respect", noun:{decl:3, gender:"m", nom:"honor", gen:"honoris"}},
 {unit:19, lemma:"hora", pos:"noun", gloss:"hour; time", noun:{decl:1, gender:"f", nom:"hora", gen:"horae"}},
 {unit:19, lemma:"hortus", pos:"noun", gloss:"garden", noun:{decl:2, gender:"m", nom:"hortus", gen:"horti"}},
 {unit:19, lemma:"hostia", pos:"noun", gloss:"victim; sacrificial offering", noun:{decl:1, gender:"f", nom:"hostia", gen:"hostiae"}},
-{unit:4, lemma:"humanus", pos:"adj", gloss:"human"},
+{unit:15, lemma:"humanus", pos:"adj", gloss:"human"},
 {unit:3, lemma:"ibi", pos:"adv", gloss:"there; in that place"},
 {unit:28, lemma:"idem", pos:"pron", gloss:"the same"},
 {unit:12, lemma:"igitur", pos:"adv", gloss:"therefore; then"},
@@ -937,6 +937,7 @@ const SEED_ENTRIES = [
 {unit:19, lemma:"imperium", pos:"noun", gloss:"command; authority; power", noun:{decl:2, gender:"n", nom:"imperium", gen:"imperii"}},
 {unit:7, lemma:"impero", pos:"verb", gloss:"command; order", verb:{conj:1, pp:["impero","imperare","imperavi","imperatus"]}},
 {unit:10, lemma:"impius", pos:"adj", gloss:"wicked; impious"},
+{unit:15, lemma:"iniquitas", pos:"noun", gloss:"wickedness", noun:{decl:3, gender:"f", nom:"iniquitas", gen:"iniquitatis"}},
 {unit:1, lemma:"in", pos:"prep", gloss:"in; on", prep:{governs:"acc"}},
 {unit:1, lemma:"in", pos:"prep", gloss:"into; onto",prep:{governs:"abl"}},
 {unit:3, lemma:"in saecula (saeculorum)", pos:"phrase", gloss:"forever; unto ages (of ages)"},
@@ -950,19 +951,20 @@ const SEED_ENTRIES = [
 {unit:6, lemma:"ira", pos:"noun", gloss:"anger; wrath", noun:{decl:1, gender:"f", nom:"ira", gen:"irae"}},
 {unit:28, lemma:"iste", pos:"pron", gloss:"that (of yours); that near you"},
 {unit:5, lemma:"justus", pos:"adj", gloss:"just; righteous"},
-{unit:2, lemma:"Jerusalem", pos:"noun", gloss:"Jerusalem", noun:{decl:3, gender:"f", nom:"Jerusalem", gen:"Jerusalem"}},
+{unit:14, lemma:"Jerusalem", pos:"noun", gloss:"Jerusalem", noun:{decl:3, gender:"f", nom:"Jerusalem", gen:"Jerusalem"}},
 {unit:2, lemma:"Jesus", pos:"noun", gloss:"Jesus", noun:{decl:2, gender:"m", nom:"Jesus", gen:"Jesu"}},
 {unit:16, lemma:"judex", pos:"noun", gloss:"judge", noun:{decl:3, gender:"m", nom:"judex", gen:"judicis"}},
 {unit:16, lemma:"judico", pos:"verb", gloss:"judge", verb:{conj:1, pp:["judico","judicare","judicavi","judicatus"]}},
 {unit:16, lemma:"justitia", pos:"noun", gloss:"justice; righteousness", noun:{decl:1, gender:"f", nom:"justitia", gen:"justitiae"}},
 
-{unit:6, lemma:"labor", pos:"noun", gloss:"work; labor", noun:{decl:3, gender:"m", nom:"labor", gen:"laboris"}},
+{unit:14, lemma:"labor", pos:"noun", gloss:"work; labor", noun:{decl:3, gender:"m", nom:"labor", gen:"laboris"}},
 {unit:19, lemma:"laboro", pos:"verb", gloss:"work; toil", verb:{conj:1, pp:["laboro","laborare","laboravi","laboratus"]}},
 {unit:9, lemma:"laetus", pos:"adj", gloss:"happy; joyful"},
+{unit:15, lemma:"largitas", pos:"noun", gloss:"bounty", noun:{decl:3, gender:"f", nom:"largitas", gen:"largitatis"}},
 {unit:5, lemma:"laudo", pos:"verb", gloss:"praise", verb:{conj:1, pp:["laudo","laudare","laudavi","laudatus"]}},
-{unit:1, lemma:"laus", pos:"noun", gloss:"praise", noun:{decl:3, gender:"f", nom:"laus", gen:"laudis"}},
+{unit:14, lemma:"laus", pos:"noun", gloss:"praise", noun:{decl:3, gender:"f", nom:"laus", gen:"laudis"}},
 {unit:16, lemma:"lego", pos:"verb", gloss:"read; gather; choose", verb:{conj:3, pp:["lego","legere","legi","lectus"]}},
-{unit:2, lemma:"lex", pos:"noun", gloss:"law", noun:{decl:3, gender:"f", nom:"lex", gen:"legis"}},
+{unit:14, lemma:"lex", pos:"noun", gloss:"law", noun:{decl:3, gender:"f", nom:"lex", gen:"legis"}},
 {unit:3, lemma:"liber", pos:"noun", gloss:"book", noun:{decl:2, gender:"m", nom:"liber", gen:"libri"}},
 {unit:5, lemma:"libero", pos:"verb", gloss:"free; liberate", verb:{conj:1, pp:["libero","liberare","liberavi","liberatus"]}},
 {unit:24, lemma:"lignum", pos:"noun", gloss:"wood; tree", noun:{decl:2, gender:"n", nom:"lignum", gen:"ligni"}},
@@ -970,29 +972,31 @@ const SEED_ENTRIES = [
 {unit:28, lemma:"lingua", pos:"noun", gloss:"tongue; language", noun:{decl:1, gender:"f", nom:"lingua", gen:"linguae"}},
 {unit:7, lemma:"locus", pos:"noun", gloss:"place", noun:{decl:2, gender:"m", nom:"locus", gen:"loci"}},
 {unit:6, lemma:"longus", pos:"adj", gloss:"long"},
-{unit:9, lemma:"lux", pos:"noun", gloss:"light", noun:{decl:3, gender:"f", nom:"lux", gen:"lucis"}},
-{unit:24, lemma:"lumen", pos:"noun", gloss:"light", noun:{decl:3, gender:"n", nom:"lumen", gen:"luminis"}},
+{unit:14, lemma:"lux", pos:"noun", gloss:"light", noun:{decl:3, gender:"f", nom:"lux", gen:"lucis"}},
+{unit:14, lemma:"lumen", pos:"noun", gloss:"light", noun:{decl:3, gender:"n", nom:"lumen", gen:"luminis"}},
 {unit:29, lemma:"magis", pos:"adv", gloss:"more; rather"},
 {unit:1, lemma:"magnus", pos:"adj", gloss:"great; large"},
 {unit:16, lemma:"maiestas", pos:"noun", gloss:"majesty; greatness", noun:{decl:3, gender:"f", nom:"maiestas", gen:"maiestatis"}},
 {unit:24, lemma:"malus", pos:"adj", gloss:"bad; evil"},
 {unit:6, lemma:"mando", pos:"verb", gloss:"entrust; command", verb:{conj:1, pp:["mando","mandare","mandavi","mandatus"]}},
+{unit:15, lemma:"manduco", pos:"verb", gloss:"eat", verb:{conj:1, pp:["manduco","manducare","manducavi","manducatus"]}},
 {unit:19, lemma:"manus", pos:"noun", gloss:"hand", noun:{decl:4, gender:"f", nom:"manus", gen:"manus"}},
-{unit:20, lemma:"mare", pos:"noun", gloss:"sea", noun:{decl:3, gender:"n", nom:"mare", gen:"maris"}},
-{unit:6, lemma:"mater", pos:"noun", gloss:"mother", noun:{decl:3, gender:"f", nom:"mater", gen:"matris"}},
+{unit:15, lemma:"mare", pos:"noun", gloss:"sea", noun:{decl:3, gender:"n", nom:"mare", gen:"maris", genPl:"marium"}},
+{unit:14, lemma:"mater", pos:"noun", gloss:"mother", noun:{decl:3, gender:"f", nom:"mater", gen:"matris"}},
 {unit:21, lemma:"mecum", pos:"phrase", gloss:"with me"},
 {unit:19, lemma:"medius", pos:"adj", gloss:"middle; in the middle"},
 {unit:19, lemma:"melior", pos:"adj", gloss:"better"},
 {unit:19, lemma:"mensa", pos:"noun", gloss:"table", noun:{decl:1, gender:"f", nom:"mensa", gen:"mensae"}},
-{unit:19, lemma:"mens", pos:"noun", gloss:"mind; thought; intention", noun:{decl:3, gender:"f", nom:"mens", gen:"mentis"}},
+{unit:15, lemma:"mens", pos:"noun", gloss:"mind; intention", noun:{decl:3, gender:"f", nom:"mens", gen:"mentis", genPl:"mentium"}},
 {unit:6, lemma:"misericordia", pos:"noun", gloss:"mercy; compassion", noun:{decl:1, gender:"f", nom:"misericordia", gen:"misericordiae"}},
 {unit:12, lemma:"mitto", pos:"verb", gloss:"send; let go", verb:{conj:3, pp:["mitto","mittere","misi","missus"]}},
 {unit:21, lemma:"modus", pos:"noun", gloss:"measure; manner; way", noun:{decl:2, gender:"m", nom:"modus", gen:"modi"}},
 {unit:6, lemma:"moneo", pos:"verb", gloss:"warn; advise; remind", verb:{conj:2, pp:["moneo","monere","monui","monitus"]}},
+{unit:14, lemma:"munus", pos:"noun", gloss:"gift; offering", noun:{decl:3, gender:"n", nom:"munus", gen:"muneris"}},
 {unit:13, lemma:"muto", pos:"verb", gloss:"change or exchange", verb:{conj:1, pp:["muto","mutare","mutavi","mutatus"]}},
 {unit:18, lemma:"mons", pos:"noun", gloss:"mountain", noun:{decl:3, gender:"m", nom:"mons", gen:"montis"}},
 {unit:29, lemma:"mortalis", pos:"adj", gloss:"mortal"},
-{unit:7, lemma:"mors", pos:"noun", gloss:"death", noun:{decl:3, gender:"f", nom:"mors", gen:"mortis"}},
+{unit:15, lemma:"mors", pos:"noun", gloss:"death", noun:{decl:3, gender:"f", nom:"mors", gen:"mortis", genPl:"mortium"}},
 {unit:3, lemma:"mysterium", pos:"noun", gloss:"mystery", noun:{decl:2, gender:"n", nom:"mysterium", gen:"mysterii"}},
 {unit:13, lemma:"nam", pos:"conj", gloss:"for; indeed"},
 {unit:5, lemma:"narro", pos:"verb", gloss:"tell; relate", verb:{conj:1, pp:["narro","narrare","narravi","narratus"]}},
@@ -1004,7 +1008,7 @@ const SEED_ENTRIES = [
 {unit:29, lemma:"nihil", pos:"pron", gloss:"nothing"},
 {unit:29, lemma:"nisi", pos:"conj", gloss:"unless; except"},
 {unit:29, lemma:"nolo", pos:"verb", gloss:"not wish; be unwilling", verb:{conj:"irreg", pp:["nolo","nolle","nolui","-"]}},
-{unit:19, lemma:"nomen", pos:"noun", gloss:"name", noun:{decl:3, gender:"n", nom:"nomen", gen:"nominis"}},
+{unit:14, lemma:"nomen", pos:"noun", gloss:"name", noun:{decl:3, gender:"n", nom:"nomen", gen:"nominis"}},
 {unit:1, lemma:"non", pos:"adv", gloss:"not"},
 {unit:7, lemma:"nos", pos:"pron", gloss:"we; us"},
 {unit:2, lemma:"noster", pos:"adj", gloss:"our"},
@@ -1019,16 +1023,18 @@ const SEED_ENTRIES = [
 {unit:12, lemma:"optimus", pos:"adj", gloss:"best"},
 {unit:5, lemma:"oro", pos:"verb", gloss:"pray; beg; ask", verb:{conj:1, pp:["oro","orare","oravi","oratus"]}},
 {unit:11, lemma:"ostendo", pos:"verb", gloss:"show; display", verb:{conj:3, pp:["ostendo","ostendere","ostendi","ostensus"]}},
-{unit:6, lemma:"panis", pos:"noun", gloss:"bread", noun:{decl:3, gender:"m", nom:"panis", gen:"panis"}},
+{unit:15, lemma:"panis", pos:"noun", gloss:"bread", noun:{decl:3, gender:"m", nom:"panis", gen:"panis", genPl:"panium"}},
 {unit:13, lemma:"pario", pos:"verb", gloss:"beget; produce", verb:{conj:"3io", pp:["pario","parere","peperi","partus"]}},
 {unit:6, lemma:"paro", pos:"verb", gloss:"prepare; get ready", verb:{conj:1, pp:["paro","parare","paravi","paratus"]}},
-{unit:6, lemma:"pars", pos:"noun", gloss:"part; share", noun:{decl:3, gender:"f", nom:"pars", gen:"partis"}},
-{unit:6, lemma:"pax", pos:"noun", gloss:"peace", noun:{decl:3, gender:"f", nom:"pax", gen:"pacis"}},
+{unit:15, lemma:"pars", pos:"noun", gloss:"part", noun:{decl:3, gender:"f", nom:"pars", gen:"partis", genPl:"partium"}},
+{unit:15, lemma:"pax", pos:"noun", gloss:"peace", noun:{decl:3, gender:"f", nom:"pax", gen:"pacis"}},
+{unit:14, lemma:"pater", pos:"noun", gloss:"father", noun:{decl:3, gender:"m", nom:"pater", gen:"patris"}},
+{unit:14, lemma:"princeps", pos:"noun", gloss:"chief", noun:{decl:3, gender:"m", nom:"princeps", gen:"principis"}},
 {unit:3, lemma:"peccatum", pos:"noun", gloss:"sin", noun:{decl:2, gender:"n", nom:"peccatum", gen:"peccati"}},
 {unit:6, lemma:"per", pos:"prep", gloss:"through; by means of", prep:{governs:"acc"}},
 {unit:13, lemma:"perdo", pos:"verb", gloss:"lose or destroy", verb:{conj:3, pp:["perdo","perdere","perdidi","perditus"]}},
 {unit:12, lemma:"pervenio", pos:"verb", gloss:"arrive; reach", verb:{conj:4, pp:["pervenio","pervenire","perveni","perventus"]}},
-{unit:6, lemma:"petitio", pos:"noun", gloss:"request; petition", noun:{decl:3, gender:"f", nom:"petitio", gen:"petitionis"}},
+{unit:14, lemma:"petitio", pos:"noun", gloss:"request; petition", noun:{decl:3, gender:"f", nom:"petitio", gen:"petitionis"}},
 {unit:6, lemma:"peto", pos:"verb", gloss:"seek; ask; request", verb:{conj:3, pp:["peto","petere","petivi","petitus"]}},
 {unit:6, lemma:"plenus", pos:"adj", gloss:"full"},
 {unit:6, lemma:"pono", pos:"verb", gloss:"place; put; set", verb:{conj:3, pp:["pono","ponere","posui","positus"]}},
@@ -1036,10 +1042,12 @@ const SEED_ENTRIES = [
 {unit:3, lemma:"praeceptum", pos:"noun", gloss:"command; precept", noun:{decl:2, gender:"n", nom:"praeceptum", gen:"praecepti"}},
 {unit:6, lemma:"praesto", pos:"verb", gloss:"provide; excel; stand before", verb:{conj:1, pp:["praesto","praestare","praestiti","praestitus"]}},
 {unit:3, lemma:"praemium", pos:"noun", gloss:"reward; prize", noun:{decl:2, gender:"n", nom:"praemium", gen:"praemii"}},
+{unit:15, lemma:"praeter", pos:"prep", gloss:"except", prep:{governs:"acc"}},
 {unit:6, lemma:"precor", pos:"verb", gloss:"pray; beg", verb:{conj:"dep", pp:["precor","precari","-","precatus sum"]}},
 {unit:6, lemma:"primus", pos:"adj", gloss:"first"},
 {unit:13, lemma:"primum", pos:"adv", gloss:"at first; first of all"},
 {unit:6, lemma:"pro", pos:"prep", gloss:"for; on behalf of; in place of", prep:{governs:"abl"}},
+{unit:15, lemma:"proximus", pos:"adj", gloss:"nearest"},
 {unit:21, lemma:"procedo", pos:"verb", gloss:"go forward; proceed", verb:{conj:3, pp:["procedo","procedere","processi","processus"]}},
 {unit:6, lemma:"promitto", pos:"verb", gloss:"promise", verb:{conj:3, pp:["promitto","promittere","promisi","promissus"]}},
 {unit:19, lemma:"propitius", pos:"adj", gloss:"favorable; gracious"},
@@ -1054,7 +1062,7 @@ const SEED_ENTRIES = [
 {unit:14, lemma:"quamquam", pos:"conj", gloss:"although"},
 
 {unit:3, lemma:"regina", pos:"noun", gloss:"queen", noun:{decl:1, gender:"f", nom:"regina", gen:"reginae"}},
-{unit:5, lemma:"regio", pos:"noun", gloss:"country; region", noun:{decl:3, gender:"f", nom:"regio", gen:"regionis"}},
+{unit:14, lemma:"regio", pos:"noun", gloss:"country; region", noun:{decl:3, gender:"f", nom:"regio", gen:"regionis"}},
 {unit:5, lemma:"regno", pos:"verb", gloss:"rule; reign", verb:{conj:1, pp:["regno","regnare","regnavi","regnatus"]}},
 {unit:3, lemma:"regnum", pos:"noun", gloss:"kingdom; rule", noun:{decl:2, gender:"n", nom:"regnum", gen:"regni"}},
 {unit:5, lemma:"rego", pos:"verb", gloss:"rule; guide; govern", verb:{conj:3, pp:["rego","regere","rexi","rectus"]}},
@@ -1081,21 +1089,25 @@ const SEED_ENTRIES = [
 {unit:19, lemma:"rursus", pos:"adv", gloss:"again; back"},
 
 {unit:3, lemma:"sacer", pos:"adj", gloss:"holy; sacred"},
-{unit:4, lemma:"sacerdos", pos:"noun", gloss:"priest", noun:{decl:3, gender:"m", nom:"sacerdos", gen:"sacerdotis"}},
+{unit:14, lemma:"redemptor", pos:"noun", gloss:"one who buys back", noun:{decl:3, gender:"m", nom:"redemptor", gen:"redemptoris"}},
+{unit:14, lemma:"sacerdos", pos:"noun", gloss:"priest", noun:{decl:3, gender:"m", nom:"sacerdos", gen:"sacerdotis"}},
 {unit:4, lemma:"sacrificium", pos:"noun", gloss:"sacrifice", noun:{decl:2, gender:"n", nom:"sacrificium", gen:"sacrificii"}},
 {unit:3, lemma:"saeculum", pos:"noun", gloss:"age; world", noun:{decl:2, gender:"n", nom:"saeculum", gen:"saeculi"}},
-{unit:6, lemma:"salus", pos:"noun", gloss:"health; salvation", noun:{decl:3, gender:"f", nom:"salus", gen:"salutis"}},
+{unit:15, lemma:"salus", pos:"noun", gloss:"safety; health", noun:{decl:3, gender:"f", nom:"salus", gen:"salutis"}},
 {unit:12, lemma:"sanctifico", pos:"verb", gloss:"sanctify; make holy", verb:{conj:1, pp:["sanctifico","sanctificare","sanctificavi","sanctificatus"]}},
 {unit:3, lemma:"sanctus", pos:"adj", gloss:"holy"},
-{unit:5, lemma:"sanguis", pos:"noun", gloss:"blood", noun:{decl:3, gender:"m", nom:"sanguis", gen:"sanguinis"}},
+{unit:15, lemma:"sanguis", pos:"noun", gloss:"blood", noun:{decl:3, gender:"m", nom:"sanguis", gen:"sanguinis"}},
 {unit:6, lemma:"sapientia", pos:"noun", gloss:"wisdom", noun:{decl:1, gender:"f", nom:"sapientia", gen:"sapientiae"}},
-{unit:19, lemma:"satis", pos:"adv", gloss:"enough; sufficiently"},
+{unit:15, lemma:"satis", pos:"adv", gloss:"enough"},
+{unit:14, lemma:"oratio", pos:"noun", gloss:"prayer", noun:{decl:3, gender:"f", nom:"oratio", gen:"orationis"}},
+{unit:14, lemma:"virgo", pos:"noun", gloss:"virgin", noun:{decl:3, gender:"f", nom:"virgo", gen:"virginis"}},
+{unit:14, lemma:"voluntas", pos:"noun", gloss:"will", noun:{decl:3, gender:"f", nom:"voluntas", gen:"voluntatis"}},
 {unit:6, lemma:"scribo", pos:"verb", gloss:"write", verb:{conj:3, pp:["scribo","scribere","scripsi","scriptus"]}},
 {unit:7, lemma:"scriptura", pos:"noun", gloss:"writing; Scripture", noun:{decl:1, gender:"f", nom:"scriptura", gen:"scripturae"}},
 {unit:6, lemma:"secundus", pos:"adj", gloss:"second"},
 {unit:7, lemma:"sed", pos:"conj", gloss:"but"},
 {unit:6, lemma:"semper", pos:"adv", gloss:"always"},
-{unit:6, lemma:"senex", pos:"noun", gloss:"old man; elder", noun:{decl:3, gender:"m", nom:"senex", gen:"senis"}},
+{unit:14, lemma:"senex", pos:"noun", gloss:"old man; elder", noun:{decl:3, gender:"m", nom:"senex", gen:"senis"}},
 {unit:6, lemma:"sentio", pos:"verb", gloss:"feel; perceive; think", verb:{conj:4, pp:["sentio","sentire","sensi","sensus"]}},
 {unit:1, lemma:"servo", pos:"verb", gloss:"save; preserve; keep", verb:{conj:1, pp:["servo","servare","servavi","servatus"]}},
 {unit:6, lemma:"servus", pos:"noun", gloss:"slave; servant", noun:{decl:2, gender:"m", nom:"servus", gen:"servi"}},
@@ -1105,6 +1117,7 @@ const SEED_ENTRIES = [
 {unit:6, lemma:"similis", pos:"adj", gloss:"like; similar"},
 {unit:6, lemma:"simul", pos:"adv", gloss:"at the same time; together"},
 {unit:6, lemma:"sine", pos:"prep", gloss:"without", prep:{governs:"abl"}},
+{unit:15, lemma:"salvus", pos:"adj", gloss:"safe"},
 {unit:6, lemma:"solus", pos:"adj", gloss:"alone; only"},
 {unit:19, lemma:"somnus", pos:"noun", gloss:"sleep", noun:{decl:2, gender:"m", nom:"somnus", gen:"somni"}},
 {unit:7, lemma:"spes", pos:"noun", gloss:"hope", noun:{decl:5, gender:"f", nom:"spes", gen:"spei"}},
@@ -1156,17 +1169,17 @@ const SEED_ENTRIES = [
 {unit:6, lemma:"venio", pos:"verb", gloss:"come", verb:{conj:4, pp:["venio","venire","veni","ventus"]}},
 {unit:3, lemma:"verbum", pos:"noun", gloss:"word", noun:{decl:2, gender:"n", nom:"verbum", gen:"verbi"}},
 {unit:9, lemma:"vere", pos:"adv", gloss:"truly; really"},
-{unit:9, lemma:"veritas", pos:"noun", gloss:"truth", noun:{decl:3, gender:"f", nom:"veritas", gen:"veritatis"}},
+{unit:14, lemma:"veritas", pos:"noun", gloss:"truth", noun:{decl:3, gender:"f", nom:"veritas", gen:"veritatis"}},
 {unit:9, lemma:"vero", pos:"adv", gloss:"indeed; truly"},
 {unit:3, lemma:"via", pos:"noun", gloss:"way; road", noun:{decl:1, gender:"f", nom:"via", gen:"viae"}},
 {unit:6, lemma:"video", pos:"verb", gloss:"see", verb:{conj:2, pp:["video","videre","vidi","visus"]}},
 {unit:29, lemma:"vigilo", pos:"verb", gloss:"watch; stay awake; be vigilant", verb:{conj:1, pp:["vigilo","vigilare","vigilavi","vigilatus"]}},
 {unit:6, lemma:"vinum", pos:"noun", gloss:"wine", noun:{decl:2, gender:"n", nom:"vinum", gen:"vini"}},
 {unit:3, lemma:"vir", pos:"noun", gloss:"man; husband", noun:{decl:2, gender:"m", nom:"vir", gen:"viri"}},
-{unit:9, lemma:"virtus", pos:"noun", gloss:"virtue; strength; courage", noun:{decl:3, gender:"f", nom:"virtus", gen:"virtutis"}},
+{unit:14, lemma:"virtus", pos:"noun", gloss:"virtue; strength; courage", noun:{decl:3, gender:"f", nom:"virtus", gen:"virtutis"}},
 {unit:1, lemma:"vita", pos:"noun", gloss:"life", noun:{decl:1, gender:"f", nom:"vita", gen:"vitae"}},
 {unit:11, lemma:"vivo", pos:"verb", gloss:"live", verb:{conj:3, pp:["vivo","vivere","vixi","victus"]}},
-{unit:6, lemma:"vocatio", pos:"noun", gloss:"calling; vocation", noun:{decl:3, gender:"f", nom:"vocatio", gen:"vocationis"}},
+{unit:14, lemma:"vocatio", pos:"noun", gloss:"calling; vocation", noun:{decl:3, gender:"f", nom:"vocatio", gen:"vocationis"}},
 {unit:5, lemma:"voco", pos:"verb", gloss:"call; summon", verb:{conj:1, pp:["voco","vocare","vocavi","vocatus"]}},
 {unit:27, lemma:"vox", pos:"noun", gloss:"voice", noun:{decl:3, gender:"f", nom:"vox", gen:"vocis"}},
 {unit:16, lemma:"vultus", pos:"noun", gloss:"face; expression", noun:{decl:4, gender:"m", nom:"vultus", gen:"vultus"}},
@@ -1246,15 +1259,24 @@ const DEFAULT_STORE = {
   mastery: { version: 1, items: {} },
   events:  { version: 1, log: [] },
 
-  // NEW: score tracking
+  // Player-facing score tracking
   stats:{
+    modes:{
+      vocab:{attempts:0, correct:0, runs:0, bestScore:0},
+      preps:{attempts:0, correct:0, runs:0, bestScore:0},
+      verbmeta:{attempts:0, correct:0, runs:0, bestScore:0},
+      noun:{attempts:0, correct:0, runs:0, bestScore:0},
+      verb:{attempts:0, correct:0, runs:0, bestScore:0},
+      thirdparse:{attempts:0, correct:0, runs:0, bestScore:0}
+    },
     mcq:{
       vocab:{attempts:0, correct:0},
       preps:{attempts:0, correct:0},
       verbmeta:{attempts:0, correct:0},
     },
     streak:{current:0, best:0},
-    lastAnswerAt:0
+    lastAnswerAt:0,
+    totalScore:0
   }
 };
 
@@ -1267,6 +1289,14 @@ function ensureStoreShape(){
 
   // stats safety
   if(!STORE.stats) STORE.stats = JSON.parse(JSON.stringify(DEFAULT_STORE.stats));
+  if(!STORE.stats.modes) STORE.stats.modes = {};
+  for(const k of ["vocab","preps","verbmeta","noun","verb","thirdparse"]){
+    if(!STORE.stats.modes[k]) STORE.stats.modes[k] = {attempts:0, correct:0, runs:0, bestScore:0};
+    STORE.stats.modes[k].attempts = Number(STORE.stats.modes[k].attempts || 0);
+    STORE.stats.modes[k].correct = Number(STORE.stats.modes[k].correct || 0);
+    STORE.stats.modes[k].runs = Number(STORE.stats.modes[k].runs || 0);
+    STORE.stats.modes[k].bestScore = Number(STORE.stats.modes[k].bestScore || 0);
+  }
   if(!STORE.stats.mcq) STORE.stats.mcq = {};
   for(const k of ["vocab","preps","verbmeta"]){
     if(!STORE.stats.mcq[k]) STORE.stats.mcq[k] = {attempts:0, correct:0};
@@ -1277,6 +1307,7 @@ function ensureStoreShape(){
   STORE.stats.streak.current = Number(STORE.stats.streak.current || 0);
   STORE.stats.streak.best    = Number(STORE.stats.streak.best || 0);
   STORE.stats.lastAnswerAt   = Number(STORE.stats.lastAnswerAt || 0);
+  STORE.stats.totalScore     = Number(STORE.stats.totalScore || 0);
   // --- mastery / progress tracking ---
   if (!STORE.mastery || typeof STORE.mastery !== "object") {
   STORE.mastery = { version: 1, items: {} };
@@ -1309,6 +1340,16 @@ function allUnits(){
 function entriesByUnits(units){
   const set = new Set(units);
   return STORE.entries.filter(e=>set.has(e.unit));
+}
+function isThirdDeclNoun(entry){
+  return !!(entry && entry.pos==="noun" && entry.noun && (entry.noun.decl===3 || entry.noun.decl==="3i"));
+}
+function thirdDeclensionUnits(){
+  const s = new Set(STORE.entries.filter(isThirdDeclNoun).map(e=>e.unit));
+  return Array.from(s).sort((a,b)=>a-b);
+}
+function thirdDeclensionEntriesByUnits(units){
+  return entriesByUnits(units).filter(isThirdDeclNoun);
 }
 
 /* =========================
@@ -1351,10 +1392,14 @@ function declineNoun(n){
   if(decl===3 || decl==="3i"){
     const iStem = decl==="3i" || !!n.iStem;
     const accSg = (gender==="n") ? nom : stem+"em";
-    const nomPl = (gender==="n") ? (iStem ? stem+"ia" : stem+"a") : stem+"es";
-    const accPl = (gender==="n") ? nomPl : stem+"es";
-    const genPl = iStem ? stem+"ium" : stem+"um";
-    const ablSg = iStem ? stem+"i" : stem+"e";
+    const nomPlDefault = (gender==="n") ? (iStem ? stem+"ia" : stem+"a") : stem+"es";
+    const accPlDefault = (gender==="n") ? nomPlDefault : stem+"es";
+    const genPlDefault = iStem ? stem+"ium" : stem+"um";
+    const ablSgDefault = iStem ? stem+"i" : stem+"e";
+    const nomPl = n.nomPl || nomPlDefault;
+    const accPl = n.accPl || accPlDefault;
+    const genPl = n.genPl || genPlDefault;
+    const ablSg = n.ablSg || ablSgDefault;
     setAll([nom, gen, stem+"i", accSg, ablSg], [nomPl, genPl, stem+"ibus", accPl, stem+"ibus"]);
     return {forms, note:`3rd decl (${gender})${iStem?" i-stem":""}`};
   }
@@ -1564,6 +1609,7 @@ const NAV = [
   {hash:"#/", label:"Home"},
   {hash:"#/progress", label:"Progress"},
   {hash:"#/paradigms", label:"Noun Paradigms"},
+  {hash:"#/thirdparse", label:"3rd Decl Parsing"},
   {hash:"#/verbs", label:"Verb Paradigms"},
   {hash:"#/verbmeta", label:"Principal Parts"},
   {hash:"#/vocab", label:"Vocab Quiz"},
@@ -1591,6 +1637,11 @@ const STATE = {
 
   paradigms: {
     nouns:{ d1:true, d2m:true, d2n:true, d3:true, d4:true, d5:true }
+  },
+
+  thirdParse: {
+    timerMode:"untimed",
+    seconds:10
   },
 
   verbs: {
@@ -1671,8 +1722,8 @@ function Layout(title, subtitle, content){
   `;
 }
 
-function UnitsPicker(){
-  const units = allUnits();
+function UnitsPicker(unitsList = allUnits(), acts = {all:"unitsAll", none:"unitsNone"}){
+  const units = unitsList;
   return `
     <div class="row" style="justify-content:space-between; align-items:flex-end">
       <div>
@@ -1680,8 +1731,8 @@ function UnitsPicker(){
         <div class="tiny">Choose what the game draws from</div>
       </div>
       <div class="row">
-        <button class="ghost" data-act="unitsAll">All</button>
-        <button class="ghost" data-act="unitsNone">None</button>
+        <button class="ghost" data-act="${escapeHtml(acts.all)}">All</button>
+        <button class="ghost" data-act="${escapeHtml(acts.none)}">None</button>
       </div>
     </div>
     <div class="hr"></div>
@@ -1714,23 +1765,28 @@ function Home(){
         <p>Decline a random noun from selected units. Grade highlights green/red and explains.</p>
         <div class="tag">Setup → Run • graded</div>
       </div>
+      <div class="option" data-go="#/thirdparse">
+        <h3>2) 3rd Declension Parsing</h3>
+        <p>Parse a shown 3rd-declension form by typing nominative, gender, number, and case.</p>
+        <div class="tag">Typed entry • graded</div>
+      </div>
       <div class="option" data-go="#/verbs">
-        <h3>2) Verb Paradigms</h3>
+        <h3>3) Verb Paradigms</h3>
         <p>One tense at a time. Select conjugations, tenses, voice, and include sum.</p>
         <div class="tag">Setup → Run • graded</div>
       </div>
       <div class="option" data-go="#/vocab">
-        <h3>3) Vocabulary</h3>
+        <h3>4) Vocabulary</h3>
         <p>Multiple choice translation quiz drawn from selected units (timer optional).</p>
         <div class="tag">Fast recall</div>
       </div>
       <div class="option" data-go="#/verbmeta">
-        <h3>4) Principal Parts</h3>
+        <h3>5) Principal Parts</h3>
         <p>Type all 4 principal parts for a verb from selected units, then grade.</p>
         <div class="tag">Typed entry • timer optional</div>
       </div>
       <div class="option" data-go="#/preps">
-        <h3>5) Prepositions</h3>
+        <h3>6) Prepositions</h3>
         <p>Choose translation + governed case (ACC/ABL).</p>
         <div class="tag">Case drill</div>
       </div>
@@ -1819,6 +1875,7 @@ function record(key, ok, meta = null, now = Date.now()) {
 
 function ProgressView(){
   ensureStoreShape();
+  const career = computeCareerScoreSummary();
 
   const items = STORE.mastery?.items || {};
   const keys = Object.keys(items);
@@ -1968,6 +2025,14 @@ function ProgressView(){
   `;
 
   const html = `
+    <div class="row" style="gap:10px; flex-wrap:wrap">
+      <span class="badge"><b>${career.totalScore}</b> lifetime score</span>
+      <span class="badge"><b>${career.accuracy}%</b> lifetime accuracy</span>
+      <span class="badge"><b>${career.runs}</b> runs completed</span>
+      <span class="badge"><b>${career.bestScore}</b> best run</span>
+      <span class="badge"><b>${career.bestStreak}</b> best streak</span>
+    </div>
+    <div class="hr"></div>
     ${pills}
     ${unitTable}
     ${weakList}
@@ -2032,25 +2097,106 @@ function computeMasteryPercentsByMode(){
   };
 }
 
-
-function recordMCQ(mode, ok){
+function makeSession(mode){
+  return {
+    mode,
+    answers:0,
+    correct:0,
+    score:0,
+    prompts:0,
+    bestPromptScore:0
+  };
+}
+function sessionAccuracy(session){
+  return session && session.answers ? Math.round((session.correct / session.answers) * 100) : 0;
+}
+function renderSessionSummary(R){
+  const s = R?.session;
+  if(!s) return "";
+  const acc = sessionAccuracy(s);
+  const last = R.lastSummary;
+  const lastLine = last
+    ? `<div class="tiny">Last result: ${last.correct}/${last.total} correct • +${last.score} pts${last.bonus?` (${last.bonus} bonus)`:""}</div>`
+    : `<div class="tiny">Build momentum across this run.</div>`;
+  return `
+    <div class="row" style="gap:10px; margin-top:12px; flex-wrap:wrap">
+      <span class="badge"><b>${s.score}</b> score</span>
+      <span class="badge"><b>${acc}%</b> accuracy</span>
+      <span class="badge"><b>${s.correct}/${s.answers}</b> correct</span>
+      <span class="badge"><b>${s.prompts}</b> prompts</span>
+    </div>
+    <div class="tiny" style="margin-top:8px">${lastLine}</div>
+  `;
+}
+function recordAnswerStats(mode, ok, points=0){
   ensureStoreShape();
-
-  const b = STORE.stats?.mcq?.[mode];
-  if(!b) return;
-
-  b.attempts += 1;
-  if(ok) b.correct += 1;
+  const bucket = STORE.stats?.modes?.[mode];
+  if(!bucket) return;
+  bucket.attempts += 1;
+  if(ok) bucket.correct += 1;
+  STORE.stats.totalScore += Math.max(0, Number(points || 0));
 
   if(ok){
     STORE.stats.streak.current += 1;
-    STORE.stats.streak.best =
-      Math.max(STORE.stats.streak.best, STORE.stats.streak.current);
+    STORE.stats.streak.best = Math.max(STORE.stats.streak.best, STORE.stats.streak.current);
   } else {
     STORE.stats.streak.current = 0;
   }
 
   STORE.stats.lastAnswerAt = Date.now();
+  saveStore();
+}
+function finalizeRunStats(mode, summary){
+  ensureStoreShape();
+  const bucket = STORE.stats?.modes?.[mode];
+  if(!bucket) return;
+  bucket.runs += 1;
+  bucket.bestScore = Math.max(bucket.bestScore || 0, Number(summary?.score || 0));
+  saveStore();
+}
+function applyPromptSummary(R, summary){
+  if(!R.session) R.session = makeSession(R.type);
+  R.session.answers += summary.total;
+  R.session.correct += summary.correct;
+  R.session.score += summary.score;
+  R.session.prompts += 1;
+  R.session.bestPromptScore = Math.max(R.session.bestPromptScore || 0, summary.score || 0);
+  R.lastSummary = summary;
+}
+function computeCareerScoreSummary(){
+  ensureStoreShape();
+  const modes = STORE.stats?.modes || {};
+  let attempts = 0, correct = 0, runs = 0, bestScore = 0;
+  for(const k of Object.keys(modes)){
+    const m = modes[k];
+    attempts += Number(m.attempts || 0);
+    correct += Number(m.correct || 0);
+    runs += Number(m.runs || 0);
+    bestScore = Math.max(bestScore, Number(m.bestScore || 0));
+  }
+  return {
+    attempts,
+    correct,
+    runs,
+    accuracy: attempts ? Math.round((correct / attempts) * 100) : 0,
+    totalScore: Number(STORE.stats?.totalScore || 0),
+    bestScore,
+    bestStreak: Number(STORE.stats?.streak?.best || 0)
+  };
+}
+function finalizeRunIfNeeded(R){
+  if(!R || !R.session || R.runRecorded) return;
+  if(!R.session.answers) return;
+  finalizeRunStats(R.type, {score:R.session.score});
+  R.runRecorded = true;
+}
+
+function recordMCQ(mode, ok){
+  ensureStoreShape();
+  const b = STORE.stats?.mcq?.[mode];
+  if(!b) return;
+  b.attempts += 1;
+  if(ok) b.correct += 1;
   saveStore();
 }
 
@@ -2141,6 +2287,7 @@ function pickEntryBiased(R, features = "mcq") {
 function stopRun(){
   const R = STATE.run;
   if(R && R._timer) clearInterval(R._timer);
+  finalizeRunIfNeeded(R);
   STATE.run = null;
   toast("Stopped.", "ok");
   render();
@@ -2166,7 +2313,11 @@ function pickChoice(choice){
   render(); // show green/red highlight immediately
   
   if(choice !== "__timeout__"){
+    const timeBonus = R.timerMode==="timed" ? Math.max(0, Math.min(5, Number(R.q?.timeLeft || 0))) : 0;
+    const points = ok ? (10 + timeBonus) : 0;
     recordMCQ(R.type, ok);
+    recordAnswerStats(R.type, ok, points);
+    applyPromptSummary(R, {correct: ok ? 1 : 0, total:1, score:points, bonus: timeBonus});
 
     const entry = R.q?.entry || null;
     const lemma = entry?.lemma || entry?.id || "unknown";
@@ -2283,6 +2434,7 @@ function GenericMCQRun(title, subtitle){
         <button class="ghost" data-act="stopRun">Stop</button>
       </div>
     </div>
+    ${renderSessionSummary(R)}
     <div class="choiceGrid">${choices}</div>
   `;
   return Layout(title, subtitle, html);
@@ -2325,7 +2477,9 @@ function startVocabRun(){
     seconds: clampInt(STATE.vocab.seconds, 5, 20),
     locked:false,
     q:null,
-    _timer:null
+    _timer:null,
+    session: makeSession("vocab"),
+    lastSummary:null
   };
   nextMCQ();
   location.hash = "#/vocab/run";
@@ -2368,7 +2522,9 @@ function startPrepsRun(){
     seconds: clampInt(STATE.preps.seconds, 5, 20),
     locked:false,
     q:null,
-    _timer:null
+    _timer:null,
+    session: makeSession("preps"),
+    lastSummary:null
   };
   nextMCQ();
   location.hash = "#/preps/run";
@@ -2490,7 +2646,10 @@ function startVerbMetaRun(){
     cells:{},
     graded:false,
     timeLeft: clampInt(STATE.verbMeta.seconds, 5, 20),
-    _timer:null
+    _timer:null,
+    session: makeSession("verbmeta"),
+    lastSummary:null,
+    runRecorded:false
   };
   startVerbMetaPrompt(null);
   location.hash = "#/verbmeta/run";
@@ -2542,6 +2701,7 @@ function VerbMetaRun(){
         <button class="danger" data-act="clearRun">Reset</button>
       </div>
     </div>
+    ${renderSessionSummary(R)}
     <div class="hr"></div>
     <table class="table">
       <thead><tr><th>Principal Part</th><th>Your answer</th></tr></thead>
@@ -2553,7 +2713,10 @@ function VerbMetaRun(){
 function gradeVerbMeta(fromTimeout=false){
   const R = STATE.run;
   if(!R || R.type!=="verbmeta" || !R.entry) return;
+  if(R.graded) return;
   if(R._timer) clearInterval(R._timer);
+  let correctCount = 0;
+  const total = 4;
 
   for(let i=0;i<4;i++){
     const key = `pp.${i}`;
@@ -2562,6 +2725,8 @@ function gradeVerbMeta(fromTimeout=false){
     const features = `pp:${i}`;
     const approved = getApproved("verbmeta", R.entry.lemma, features);
     const ok = ppAnswerOk(got, engine, approved);
+    if(ok) correctCount += 1;
+    recordAnswerStats("verbmeta", ok, ok ? 10 : 0);
 
     try{
       const cellKey = overrideKey("verbmeta", R.entry.lemma, features);
@@ -2585,6 +2750,10 @@ function gradeVerbMeta(fromTimeout=false){
          Expected: <span class="mono">${escapeHtml(expectedLabel)}</span>${approved?`<br>Also accepted: <span class="mono">${escapeHtml(approved.join(" / "))}</span>`:""}`;
   }
 
+  const perfectBonus = correctCount===total ? 20 : 0;
+  const timeBonus = (!fromTimeout && R.timerMode==="timed") ? Math.max(0, Math.min(5, Number(R.timeLeft || 0))) : 0;
+  applyPromptSummary(R, {correct:correctCount, total, score:(correctCount*10)+perfectBonus+timeBonus, bonus:perfectBonus+timeBonus});
+  finalizeRunIfNeeded(R);
   R.graded = true;
   if(fromTimeout) toast("Time is up. Graded.", "warn");
   render();
@@ -2607,6 +2776,357 @@ function submitMyAnswerRightVerbMeta(cellKey){
     myAnswer,
     engineAnswer,
     context:{type:"principalParts"}
+  });
+  toast("Submitted for admin review.", "ok");
+}
+
+/* =========================
+   3rd Declension Parsing
+   ========================= */
+function normGenderInput(s){
+  const x = norm(s);
+  if(x==="m" || x==="masc" || x==="masculine") return "m";
+  if(x==="f" || x==="fem" || x==="feminine") return "f";
+  if(x==="n" || x==="neut" || x==="neuter") return "n";
+  if(x==="m/f" || x==="f/m" || x==="mf" || x==="fm" || x==="common") return "m/f";
+  return x;
+}
+function genderAcceptedValues(g){
+  const x = normGenderInput(g);
+  if(x==="m") return ["m","masculine","masc"];
+  if(x==="f") return ["f","feminine","fem"];
+  if(x==="n") return ["n","neuter","neut"];
+  if(x==="m/f") return ["m/f","m","f","masculine","feminine","common"];
+  return [x];
+}
+function genderLabel(g){
+  const x = normGenderInput(g);
+  if(x==="m") return "masculine";
+  if(x==="f") return "feminine";
+  if(x==="n") return "neuter";
+  if(x==="m/f") return "masculine/feminine";
+  return g;
+}
+function normNumberInput(s){
+  const x = norm(s);
+  if(x==="sg" || x==="sing" || x==="singular") return "sg";
+  if(x==="pl" || x==="plural") return "pl";
+  return x;
+}
+function numberLabel(n){
+  return n==="sg" ? "singular" : "plural";
+}
+function normCaseInput(s){
+  const x = norm(s);
+  if(x==="nom" || x==="nominative") return "nom";
+  if(x==="gen" || x==="genitive") return "gen";
+  if(x==="dat" || x==="dative") return "dat";
+  if(x==="acc" || x==="accusative") return "acc";
+  if(x==="abl" || x==="ablative") return "abl";
+  return x;
+}
+function caseLabel(c){
+  if(c==="nom") return "nominative";
+  if(c==="gen") return "genitive";
+  if(c==="dat") return "dative";
+  if(c==="acc") return "accusative";
+  if(c==="abl") return "ablative";
+  return c;
+}
+function buildThirdParsePrompt(entry){
+  const built = declineNoun(entry.noun);
+  if(!built.forms) return null;
+
+  const cells = [];
+  for(const num of ["sg","pl"]){
+    for(const kase of ["nom","gen","dat","acc","abl"]){
+      cells.push({number:num, case:kase, form:built.forms[num][kase]});
+    }
+  }
+  const target = cells[Math.floor(Math.random()*cells.length)];
+  const valid = cells.filter(c=> norm(c.form)===norm(target.form));
+  return {
+    shown: target.form,
+    valid,
+    note: built.note
+  };
+}
+function ensureThirdParseTimer(R){
+  if(R._timer) clearInterval(R._timer);
+  if(R.timerMode!=="timed") return;
+  R._timer = setInterval(()=>{
+    if(!STATE.run || STATE.run!==R){
+      clearInterval(R._timer);
+      return;
+    }
+    if(R.graded) return;
+    R.timeLeft -= 1;
+    if(R.timeLeft<=0){
+      gradeThirdParse(true);
+      return;
+    }
+    render();
+  }, 1000);
+}
+function startThirdParsePrompt(previousLemma=null){
+  const R = STATE.run;
+  if(!R || R.type!=="thirdparse") return;
+  let entry = null;
+  for(let tries=0; tries<20; tries++){
+    const candidate = R.pool[Math.floor(Math.random()*R.pool.length)];
+    if(!previousLemma || candidate.lemma !== previousLemma){
+      entry = candidate;
+      break;
+    }
+  }
+  entry = entry || R.pool[Math.floor(Math.random()*R.pool.length)] || null;
+  if(!entry){
+    toast("No 3rd-declension nouns in selected units.", "warn");
+    return;
+  }
+  const prompt = buildThirdParsePrompt(entry);
+  if(!prompt){
+    toast("Could not build forms for that noun.", "warn");
+    return;
+  }
+  R.entry = entry;
+  R.shown = prompt.shown;
+  R.valid = prompt.valid;
+  R.note = prompt.note;
+  R.cells = {};
+  R.graded = false;
+  R.timeLeft = R.seconds;
+  ensureThirdParseTimer(R);
+  render();
+}
+function ThirdParseSetup(){
+  const cfg = STATE.thirdParse;
+  const html = `
+    <div class="split">
+      <div>${UnitsPicker(thirdDeclensionUnits(), {all:"tpUnitsAll", none:"tpUnitsNone"})}</div>
+      <div>
+        <div style="font-weight:900">Timer</div>
+        <div class="chkgrid" style="margin-top:8px">
+          <label class="chk"><input type="radio" name="tp_timer" value="untimed" ${cfg.timerMode==="untimed"?"checked":""}><div><div style="font-weight:900">Untimed</div><div class="tiny">parse carefully</div></div></label>
+          <label class="chk"><input type="radio" name="tp_timer" value="timed" ${cfg.timerMode==="timed"?"checked":""}><div><div style="font-weight:900">Timed</div><div class="tiny">adds pace</div></div></label>
+        </div>
+        <div class="row" style="margin-top:10px">
+          <span class="tiny">Seconds (5–20):</span>
+          <input class="smallInput mono" style="max-width:140px" type="number" min="5" max="20" step="1" value="${cfg.seconds}" data-act="tp_seconds">
+        </div>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div class="row">
+      <button class="primary" data-act="startThirdParse">Start Parsing Test</button>
+      <button class="ghost" data-act="clearRun">Clear run</button>
+    </div>
+  `;
+  return Layout("3rd Declension Parsing", "Parse a shown 3rd-declension form by typing nominative, gender, number, and case.", html);
+}
+function startThirdParseRun(){
+  const allowed = thirdDeclensionUnits();
+  const selected = Array.from(STATE.selectedUnits).filter(u=> allowed.includes(u));
+  if(selected.length===0){
+    toast("Select at least one unit.", "warn");
+    return;
+  }
+  const pool = thirdDeclensionEntriesByUnits(selected);
+  if(pool.length===0){
+    toast("No 3rd-declension nouns in selected units.", "warn");
+    return;
+  }
+  STATE.run = {
+    type:"thirdparse",
+    pool,
+    timerMode: STATE.thirdParse.timerMode,
+    seconds: clampInt(STATE.thirdParse.seconds, 5, 20),
+    entry:null,
+    shown:"",
+    valid:[],
+    note:"",
+    cells:{},
+    graded:false,
+    timeLeft: clampInt(STATE.thirdParse.seconds, 5, 20),
+    _timer:null,
+    session: makeSession("thirdparse"),
+    lastSummary:null,
+    runRecorded:false
+  };
+  startThirdParsePrompt(null);
+  go("#/thirdparse/run");
+}
+function ThirdParseRun(){
+  const R = STATE.run;
+  if(!R || R.type!=="thirdparse"){
+    return Layout("3rd Declension Parsing", "No active run. Start from Setup.", `<button class="primary" data-go="#/thirdparse">Go to setup</button>`);
+  }
+  const e = R.entry;
+  if(!e) return Layout("3rd Declension Parsing", "No active noun.", `<button class="primary" data-act="newThirdParse">New random</button>`);
+
+  const timerBadge = (R.timerMode==="timed")
+    ? `<span class="badge">Time: <span class="mono">${R.timeLeft}s</span></span>`
+    : `<span class="badge">Untimed</span>`;
+
+  const rows = [
+    {key:"nom", label:"Nominative"},
+    {key:"gender", label:"Gender"},
+    {key:"number", label:"Number"},
+    {key:"case", label:"Case"}
+  ].map(({key,label})=>{
+    const st = R.cells[key] || {val:"", ok:null, explain:""};
+    const cls = R.graded ? (st.ok ? "cellOk" : "cellBad") : "";
+    const show = R.graded && !st.ok;
+    return `
+      <tr>
+        <th>${label}</th>
+        <td class="${cls}">
+          <input class="ans" data-cell="${key}" value="${escapeHtml(st.val)}" placeholder="${label}">
+          ${R.graded ? `<div class="explain">${st.explain||""}</div>` : ``}
+          ${show ? `
+            <div class="miniActions">
+              <div class="miniBtn" data-act="submitRightThirdParse" data-cell="${key}">My answer was right ✅</div>
+              <div class="miniBtn" data-go="#/data" data-edit="${escapeHtml(e.lemma)}">Edit word ✏️</div>
+            </div>
+          `:""}
+        </td>
+      </tr>
+    `;
+  }).join("");
+
+  const html = `
+    <div class="row" style="justify-content:space-between; align-items:flex-end">
+      <div class="prompt" style="flex:1">
+        <div class="latin mono">${escapeHtml(R.shown)}</div>
+        <div class="meta">${escapeHtml(R.note)} • Unit ${e.unit} • gloss: ${escapeHtml(e.gloss || "—")}</div>
+      </div>
+      <div class="row">
+        ${timerBadge}
+        <button class="ghost" data-act="newThirdParse">New random</button>
+        <button class="primary" data-act="gradeThirdParse">Grade</button>
+        <button class="danger" data-act="clearRun">Reset</button>
+      </div>
+    </div>
+    ${renderSessionSummary(R)}
+    <div class="hr"></div>
+    <table class="table">
+      <thead><tr><th>Field</th><th>Your answer</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+  return Layout("3rd Declension Parsing", "Type the noun’s nominative, gender, number, and case.", html);
+}
+function gradeThirdParse(fromTimeout=false){
+  const R = STATE.run;
+  if(!R || R.type!=="thirdparse" || !R.entry) return;
+  if(R.graded) return;
+  if(R._timer) clearInterval(R._timer);
+
+  const validNumbers = Array.from(new Set(R.valid.map(v=>v.number)));
+  const validCases = Array.from(new Set(R.valid.map(v=>v.case)));
+  const acceptedGender = genderAcceptedValues(R.entry.noun.gender);
+  const gotNumberNorm = normNumberInput((R.cells.number?.val || "").trim());
+  const gotCaseNorm = normCaseInput((R.cells.case?.val || "").trim());
+  const hasValidPair = R.valid.some(v=> v.number===gotNumberNorm && v.case===gotCaseNorm);
+
+  const checks = [
+    {
+      key:"nom",
+      features:"parse:nom",
+      ok:(got, approved)=> approved ? approved.some(a=>norm(a)===norm(got)) : norm(got)===norm(R.entry.noun.nom),
+      explain:(got, approved)=> okExplain(got, R.entry.noun.nom, approved)
+    },
+    {
+      key:"gender",
+      features:"parse:gender",
+      ok:(got, approved)=> approved ? approved.some(a=>norm(a)===norm(got)) : acceptedGender.includes(normGenderInput(got)),
+      explain:(got, approved)=> okExplain(got, genderLabel(R.entry.noun.gender), approved)
+    },
+    {
+      key:"number",
+      features:"parse:number",
+      ok:(got, approved)=> {
+        if(approved) return approved.some(a=>norm(a)===norm(got));
+        const n = normNumberInput(got);
+        if(!validNumbers.includes(n)) return false;
+        return gotCaseNorm ? hasValidPair : true;
+      },
+      explain:(got, approved)=> okExplain(got, validNumbers.map(numberLabel).join(" / "), approved)
+    },
+    {
+      key:"case",
+      features:"parse:case",
+      ok:(got, approved)=> {
+        if(approved) return approved.some(a=>norm(a)===norm(got));
+        const c = normCaseInput(got);
+        if(!validCases.includes(c)) return false;
+        return gotNumberNorm ? hasValidPair : true;
+      },
+      explain:(got, approved)=> okExplain(got, validCases.map(caseLabel).join(" / "), approved)
+    }
+  ];
+
+  for(const check of checks){
+    const got = (R.cells[check.key]?.val || "").trim();
+    const approved = getApproved("noun", R.entry.lemma, check.features);
+    const ok = check.ok(got, approved);
+    recordAnswerStats("thirdparse", ok, ok ? 10 : 0);
+    const cellKey = overrideKey("noun", R.entry.lemma, check.features);
+    Mastery.record(cellKey, ok, {
+      unit: R.entry.unit ?? null,
+      mode: "noun",
+      lemma: R.entry.lemma,
+      features: check.features,
+      source: "nounParse"
+    });
+    R.cells[check.key] = R.cells[check.key] || {};
+    R.cells[check.key].ok = ok;
+    R.cells[check.key].explain = check.explain(got, approved);
+  }
+
+  const correctCount = checks.filter(ch => R.cells[ch.key]?.ok).length;
+  const total = checks.length;
+  const perfectBonus = correctCount===total ? 20 : 0;
+  const timeBonus = (!fromTimeout && R.timerMode==="timed") ? Math.max(0, Math.min(5, Number(R.timeLeft || 0))) : 0;
+  applyPromptSummary(R, {correct:correctCount, total, score:(correctCount*10)+perfectBonus+timeBonus, bonus:perfectBonus+timeBonus});
+  finalizeRunIfNeeded(R);
+  R.graded = true;
+  if(fromTimeout) toast("Time is up. Graded.", "warn");
+  render();
+}
+function okExplain(got, expected, approved){
+  return norm(got)===norm(expected) || (approved && approved.some(a=>norm(a)===norm(got)))
+    ? `Correct.${approved?` (approved override)`:""}`
+    : `You wrote: <span class="mono">${escapeHtml(got||"—")}</span><br>
+       Expected: <span class="mono">${escapeHtml(expected)}</span>${approved?`<br>Also accepted: <span class="mono">${escapeHtml(approved.join(" / "))}</span>`:""}`;
+}
+function submitMyAnswerRightThirdParse(cellKey){
+  const R = STATE.run;
+  if(!R || R.type!=="thirdparse" || !R.graded) return toast("Grade first, then submit.", "warn");
+  const myAnswer = (R.cells?.[cellKey]?.val||"").trim();
+  if(!myAnswer) return toast("Empty answer.", "warn");
+
+  const featuresMap = {
+    nom:"parse:nom",
+    gender:"parse:gender",
+    number:"parse:number",
+    case:"parse:case"
+  };
+  const engineMap = {
+    nom:R.entry.noun.nom,
+    gender:genderLabel(R.entry.noun.gender),
+    number:Array.from(new Set(R.valid.map(v=>v.number))).map(numberLabel).join(" / "),
+    case:Array.from(new Set(R.valid.map(v=>v.case))).map(caseLabel).join(" / ")
+  };
+
+  addPendingSuggestion({
+    mode:"noun",
+    lemma:R.entry.lemma,
+    unit:R.entry.unit,
+    features:featuresMap[cellKey] || `parse:${cellKey}`,
+    myAnswer,
+    engineAnswer:engineMap[cellKey] || "",
+    context:{type:"thirdDeclensionParsing", shown:R.shown}
   });
   toast("Submitted for admin review.", "ok");
 }
@@ -2685,6 +3205,7 @@ function ParadigmsRun(){
         <button class="danger" data-act="clearRun">Reset</button>
       </div>
     </div>
+    ${renderSessionSummary(R)}
     <div class="hr"></div>
     <table class="table">
       <thead><tr><th>Case</th><th>Singular</th><th>Plural</th></tr></thead>
@@ -2719,13 +3240,16 @@ function startNounParadigm(){
   const built = declineNoun(entry.noun);
   if(!built.forms){ toast("Missing noun metadata. Edit in Data.", "warn"); return; }
 
-  STATE.run = { type:"paradigms", entry, expected: built.forms, note: built.note, cells:{}, graded:false };
+  STATE.run = { type:"paradigms", entry, expected: built.forms, note: built.note, cells:{}, graded:false, session: makeSession("noun"), lastSummary:null, runRecorded:false };
   go("#/paradigms/run");
 }
 
 function gradeNoun(){
   const R = STATE.run;
   if(!R || R.type!=="paradigms") return;
+  if(R.graded) return;
+  let correctCount = 0;
+  const total = 10;
 
   for(const num of ["sg","pl"]){
     for(const c of ["nom","gen","dat","acc","abl"]){
@@ -2734,6 +3258,8 @@ function gradeNoun(){
       const engine = R.expected[num][c];
       const approved = getApproved("noun", R.entry.lemma, key);
       const ok = approved ? approved.some(a=>norm(a)===norm(got)) : (norm(got)===norm(engine));
+      if(ok) correctCount += 1;
+      recordAnswerStats("noun", ok, ok ? 10 : 0);
       // Mastery tracking for this noun cell
       const features = key; // e.g. "sg.nom" / "pl.abl" etc.
       const cellKey = overrideKey("noun", R.entry.lemma, features);
@@ -2754,6 +3280,9 @@ function gradeNoun(){
            Expected: <span class="mono">${escapeHtml(engine)}</span>${approved?`<br>Also accepted: <span class="mono">${escapeHtml(approved.join(" / "))}</span>`:""}`;
     }
   }
+  const perfectBonus = correctCount===total ? 20 : 0;
+  applyPromptSummary(R, {correct:correctCount, total, score:(correctCount*10)+perfectBonus, bonus:perfectBonus});
+  finalizeRunIfNeeded(R);
   R.graded = true;
   render();
 }
@@ -2897,6 +3426,7 @@ function VerbsRun(){
     const html = `
       ${header}
       ${targetBanner}
+      ${renderSessionSummary(R)}
       <div class="hr"></div>
       <table class="table">
         <thead><tr><th>Infinitive</th><th>Your answer</th></tr></thead>
@@ -2932,6 +3462,7 @@ function VerbsRun(){
   const html = `
     ${header}
     ${targetBanner}
+    ${renderSessionSummary(R)}
     <div class="hr"></div>
     <table class="table">
       <thead><tr><th>Person</th><th>Form</th></tr></thead>
@@ -3037,7 +3568,10 @@ function startVerbParadigm(){
     expected: built.forms,
     note: built.note,
     cells:{},
-    graded:false
+    graded:false,
+    session: makeSession("verb"),
+    lastSummary:null,
+    runRecorded:false
   };
   go("#/verbs/run");
 }
@@ -3045,6 +3579,9 @@ function startVerbParadigm(){
 function gradeVerb(){
   const R = STATE.run;
   if(!R || R.type!=="verbs") return;
+  if(R.graded) return;
+  let correctCount = 0;
+  const total = R.tense==="infinitive" ? 6 : 6;
 
   if(R.tense==="infinitive"){
     for(let i=0;i<6;i++){
@@ -3054,6 +3591,8 @@ function gradeVerb(){
       const features = `inf:${i}:${R.entry.verb.conj}`;
       const approved = getApproved("verb", R.entry.lemma, features);
       const ok = approved ? approved.some(a=>norm(a)===norm(got)) : (norm(got)===norm(engine));
+      if(ok) correctCount += 1;
+      recordAnswerStats("verb", ok, ok ? 10 : 0);
       // Mastery tracking (verb infinitive cell)
       try{
         const cellKey = overrideKey("verb", R.entry.lemma, features);
@@ -3083,6 +3622,8 @@ function gradeVerb(){
       const features = `${R.tense}:${R.voice}:${i}`;
       const approved = getApproved("verb", R.entry.lemma, features);
       const ok = approved ? approved.some(a=>norm(a)===norm(got)) : (norm(got)===norm(engine));
+      if(ok) correctCount += 1;
+      recordAnswerStats("verb", ok, ok ? 10 : 0);
       // Mastery tracking (verb finite form cell)
       try{
         const cellKey = overrideKey("verb", R.entry.lemma, features);
@@ -3106,6 +3647,9 @@ function gradeVerb(){
     }
   }
 
+  const perfectBonus = correctCount===total ? 20 : 0;
+  applyPromptSummary(R, {correct:correctCount, total, score:(correctCount*10)+perfectBonus, bonus:perfectBonus});
+  finalizeRunIfNeeded(R);
   R.graded = true;
   render();
 }
@@ -3356,6 +3900,11 @@ function render(){
     case "#/progress":
       app.innerHTML = ProgressView(); break;
 
+    case "#/thirdparse":
+      app.innerHTML = ThirdParseSetup(); break;
+    case "#/thirdparse/run":
+      app.innerHTML = ThirdParseRun(); break;
+
     case "#/vocab":
       app.innerHTML = VocabSetup(); break;
     case "#/vocab/run":
@@ -3393,6 +3942,7 @@ function render(){
   }
 
   bindCommon();
+  if(STATE.route.startsWith("#/thirdparse")) bindThirdParse();
   if(STATE.route.startsWith("#/vocab")) bindVocab();
   if(STATE.route.startsWith("#/preps")) bindPreps();
   if(STATE.route.startsWith("#/verbmeta")) bindVerbMeta();
@@ -3403,15 +3953,15 @@ function render(){
     const el = document.getElementById("statusScore");
   if(el){
     const s = computeMasteryPercentsByMode();
+    const c = computeCareerScoreSummary();
     
     el.innerHTML = s.all.n
-  ? `<b>${s.all.pct}%</b> overall •
+  ? `<b>${c.totalScore}</b> score •
      <span class="tiny">
-       Vocab ${s.vocab.pct}% ·
-       Preps ${s.preps.pct}% ·
-       Verb PPs ${s.verbmeta.pct}% ·
-       Nouns ${s.noun.pct}% ·
-       Verbs ${s.verb.pct}%
+       ${c.accuracy}% acc ·
+       ${c.runs} runs ·
+       Best streak ${c.bestStreak} ·
+       Mastery ${s.all.pct}%
      </span>`
   : `No progress yet • <span class="tiny">Answer a few questions</span>`;
 
@@ -3463,6 +4013,12 @@ function bindCommon(){
   $$("[data-act='unitsNone']").forEach(b=>b.addEventListener("click", ()=>{
     STATE.selectedUnits = new Set(); render();
   }));
+  $$("[data-act='tpUnitsAll']").forEach(b=>b.addEventListener("click", ()=>{
+    STATE.selectedUnits = new Set(thirdDeclensionUnits()); render();
+  }));
+  $$("[data-act='tpUnitsNone']").forEach(b=>b.addEventListener("click", ()=>{
+    STATE.selectedUnits = new Set(); render();
+  }));
   const exp = $("[data-act='exportProgress']");
   if(exp) exp.addEventListener("click", ()=>{
     ensureStoreShape();
@@ -3490,6 +4046,7 @@ if(reset) reset.addEventListener("click", ()=>{
   const clear = $("[data-act='clearRun']");
   if(clear) clear.addEventListener("click", ()=>{
     if(STATE.run?._timer) clearInterval(STATE.run._timer);
+    finalizeRunIfNeeded(STATE.run);
     STATE.run=null;
     toast("Cleared.", "ok");
     render();
@@ -3514,6 +4071,42 @@ function bindRunMCQClicks(){
   });
   const stop = $("[data-act='stopRun']");
   if(stop) stop.addEventListener("click", stopRun);
+}
+
+function bindThirdParse(){
+  const cfg = STATE.thirdParse;
+  $$("input[name='tp_timer']").forEach(r=>{
+    r.addEventListener("change", ()=>{ if(r.checked) cfg.timerMode = r.value; });
+  });
+  const sec = $("[data-act='tp_seconds']");
+  if(sec) sec.addEventListener("change", ()=>{ cfg.seconds = clampInt(sec.value,5,20); });
+
+  const start = $("[data-act='startThirdParse']");
+  if(start) start.addEventListener("click", startThirdParseRun);
+
+  const fresh = $("[data-act='newThirdParse']");
+  if(fresh) fresh.addEventListener("click", ()=>{
+    const R = STATE.run;
+    if(!R || R.type!=="thirdparse") return;
+    if(R._timer) clearInterval(R._timer);
+    startThirdParsePrompt(R.entry?.lemma || null);
+  });
+  const grade = $("[data-act='gradeThirdParse']");
+  if(grade) grade.addEventListener("click", ()=> gradeThirdParse(false));
+
+  $$("input[data-cell]").forEach(inp=>{
+    inp.addEventListener("input", ()=>{
+      const key = inp.getAttribute("data-cell");
+      const R = STATE.run;
+      if(!R || R.type!=="thirdparse") return;
+      R.cells[key] = R.cells[key] || {};
+      R.cells[key].val = inp.value;
+    });
+  });
+
+  $$("[data-act='submitRightThirdParse']").forEach(btn=>{
+    btn.addEventListener("click", ()=> submitMyAnswerRightThirdParse(btn.getAttribute("data-cell")));
+  });
 }
 
 function bindVocab(){
