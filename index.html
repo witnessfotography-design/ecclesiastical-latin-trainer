@@ -2830,6 +2830,28 @@ function normCaseInput(s){
   if(x==="abl" || x==="ablative") return "abl";
   return x;
 }
+function tokenizeMultiAnswer(s){
+  return norm(s)
+    .replace(/\s*\/\s*/g, "/")
+    .split(/(?:\/|,|;|\bor\b|\band\b|\|)+/g)
+    .map(x=>x.trim())
+    .filter(Boolean);
+}
+function caseInputSet(s){
+  return Array.from(new Set(tokenizeMultiAnswer(s).map(normCaseInput)));
+}
+function numberInputSet(s){
+  return Array.from(new Set(tokenizeMultiAnswer(s).map(normNumberInput)));
+}
+function normLatinAnswer(s){
+  return norm(s)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replaceAll("j","i");
+}
+function sameLatinAnswer(a,b){
+  return normLatinAnswer(a)===normLatinAnswer(b);
+}
 function caseLabel(c){
   if(c==="nom") return "nominative";
   if(c==="gen") return "genitive";
@@ -3003,7 +3025,7 @@ function ThirdParseRun(){
     <div class="row" style="justify-content:space-between; align-items:flex-end">
       <div class="prompt" style="flex:1">
         <div class="latin mono">${escapeHtml(R.shown)}</div>
-        <div class="meta">${escapeHtml(R.note)} • Unit ${e.unit} • gloss: ${escapeHtml(e.gloss || "—")}</div>
+        <div class="meta">Unit ${e.unit}</div>
       </div>
       <div class="row">
         ${timerBadge}
@@ -3030,16 +3052,25 @@ function gradeThirdParse(fromTimeout=false){
   const validNumbers = Array.from(new Set(R.valid.map(v=>v.number)));
   const validCases = Array.from(new Set(R.valid.map(v=>v.case)));
   const acceptedGender = genderAcceptedValues(R.entry.noun.gender);
-  const gotNumberNorm = normNumberInput((R.cells.number?.val || "").trim());
-  const gotCaseNorm = normCaseInput((R.cells.case?.val || "").trim());
-  const hasValidPair = R.valid.some(v=> v.number===gotNumberNorm && v.case===gotCaseNorm);
+  const rawNumber = (R.cells.number?.val || "").trim();
+  const rawCase = (R.cells.case?.val || "").trim();
+  const gotNumberSet = numberInputSet(rawNumber);
+  const gotCaseSet = caseInputSet(rawCase);
+  const hasValidPair = R.valid.some(v=> gotNumberSet.includes(v.number) && gotCaseSet.includes(v.case));
+  const acceptedNom = Array.from(new Set([String(R.entry.noun.nom||""), String(R.entry.lemma||"")].filter(Boolean)));
 
   const checks = [
     {
       key:"nom",
       features:"parse:nom",
-      ok:(got, approved)=> approved ? approved.some(a=>norm(a)===norm(got)) : norm(got)===norm(R.entry.noun.nom),
-      explain:(got, approved)=> okExplain(got, R.entry.noun.nom, approved)
+      ok:(got, approved)=> approved ? approved.some(a=>sameLatinAnswer(a, got)) : acceptedNom.some(n=>sameLatinAnswer(got, n)),
+      explain:(got, approved)=>{
+        const isOk = approved ? approved.some(a=>sameLatinAnswer(a, got)) : acceptedNom.some(n=>sameLatinAnswer(got, n));
+        return isOk
+          ? `Correct.${approved?` (approved override)`:""}`
+          : `You wrote: <span class="mono">${escapeHtml(got||"—")}</span><br>
+             Expected: <span class="mono">${escapeHtml(acceptedNom.join(" / "))}</span>${approved?`<br>Also accepted: <span class="mono">${escapeHtml(approved.join(" / "))}</span>`:""}`;
+      }
     },
     {
       key:"gender",
@@ -3052,9 +3083,10 @@ function gradeThirdParse(fromTimeout=false){
       features:"parse:number",
       ok:(got, approved)=> {
         if(approved) return approved.some(a=>norm(a)===norm(got));
-        const n = normNumberInput(got);
-        if(!validNumbers.includes(n)) return false;
-        return gotCaseNorm ? hasValidPair : true;
+        const nums = numberInputSet(got);
+        if(!nums.length) return false;
+        if(!nums.every(n=>validNumbers.includes(n))) return false;
+        return gotCaseSet.length ? hasValidPair : true;
       },
       explain:(got, approved)=> okExplain(got, validNumbers.map(numberLabel).join(" / "), approved)
     },
@@ -3063,9 +3095,10 @@ function gradeThirdParse(fromTimeout=false){
       features:"parse:case",
       ok:(got, approved)=> {
         if(approved) return approved.some(a=>norm(a)===norm(got));
-        const c = normCaseInput(got);
-        if(!validCases.includes(c)) return false;
-        return gotNumberNorm ? hasValidPair : true;
+        const cases = caseInputSet(got);
+        if(!cases.length) return false;
+        if(!cases.every(c=>validCases.includes(c))) return false;
+        return gotNumberSet.length ? hasValidPair : true;
       },
       explain:(got, approved)=> okExplain(got, validCases.map(caseLabel).join(" / "), approved)
     }
